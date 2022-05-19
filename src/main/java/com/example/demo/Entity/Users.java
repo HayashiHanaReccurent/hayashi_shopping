@@ -4,8 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 /**
  * userテーブル(ユーザー情報のテーブル)
+ * 
  * @author student
  *
  */
@@ -26,14 +28,29 @@ public class Users {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "tell")
-	private String tell;
+	@Column(name = "tel")
+	private String tel;
 
 	@Column(name = "name")
 	private String name;
 
 	@Column(name = "password")
 	private String password;
+
+	// コンストラクタ
+	public Users() {
+		super();
+	}
+
+	public Users(String userName, String address, String email, String tel, String name, String password) {
+		super();
+		this.userName = userName;
+		this.address = address;
+		this.email = email;
+		this.tel = tel;
+		this.name = name;
+		this.password = password;
+	}
 
 	// getter
 	public Integer getId() {
@@ -52,8 +69,8 @@ public class Users {
 		return email;
 	}
 
-	public String getTell() {
-		return tell;
+	public String getTel() {
+		return tel;
 	}
 
 	public String getName() {
