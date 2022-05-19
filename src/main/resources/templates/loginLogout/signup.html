@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 <meta charset="UTF-8">
 <title>ユーザー新規登録画面</title>
 </head>
@@ -11,22 +12,25 @@
 	<!-- 登録フォーム -->
 	<form action="/signup" method="post">
 		<p>
-			ユーザーネーム<br> <input type="text" name="userName">
+			ユーザーネーム<br> <input type="text" name="userName" placeholder="8文字以上">
 		</p>
 		<p>
-			パスワード<br> <input type="text" name="password">
+			パスワード<br> <input type="text" name="password" placeholder="8文字以上">
 		</p>
 		<p>
-			メールアドレス<br> <input type="text" name="email">
+			メールアドレス<br> <input type="text" name="email" placeholder="">
 		</p>
 		<p>
-			名前<br> <input type="text" name="name">
+			名前<br> <input type="text" name="name" placeholder="">
+		</p>
+        <p>
+			郵便番号<br> <input type="text" name="addressnum" placeholder="xxx-xxxx">
 		</p>
 		<p>
-			住所<br> <input type="text" name="address">
+			住所<br> <input type="text" name="address" placeholder="">
 		</p>
 		<p>
-			電話番号<br> <input type="text" name="tel">
+			電話番号<br> <input type="text" name="tel" placeholder="xxx-xxxx-xxxx">
 		</p>
 		<button type="submit">登録</button>
 	</form>

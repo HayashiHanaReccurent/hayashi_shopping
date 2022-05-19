@@ -2,6 +2,8 @@ package com.example.demo.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,6 +18,7 @@ import javax.persistence.Table;
 public class Users {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 
@@ -36,13 +39,16 @@ public class Users {
 
 	@Column(name = "password")
 	private String password;
+	
+	@Column(name="addressnum")
+	private String addressnum;
 
 	// コンストラクタ
 	public Users() {
 		super();
 	}
 
-	public Users(String userName, String address, String email, String tel, String name, String password) {
+	public Users(String userName, String address, String email, String tel, String name, String password, String addressnum) {
 		super();
 		this.userName = userName;
 		this.address = address;
@@ -50,6 +56,7 @@ public class Users {
 		this.tel = tel;
 		this.name = name;
 		this.password = password;
+		this.addressnum = addressnum;
 	}
 
 	// getter

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.Entity.Users;
 import com.example.demo.Repository.UsersRepository;
 
 @Controller
@@ -54,7 +55,8 @@ public class AccountController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ModelAndView signup(@RequestParam("userName") String userName, @RequestParam("password") String password,
 			@RequestParam("email") String email, @RequestParam("name") String name,
-			@RequestParam("address") String address, @RequestParam("tel") String tel, ModelAndView mv) {
+			@RequestParam("address") String address, @RequestParam("tel") String tel, 
+			@RequestParam("addressnum")String addressnum,  ModelAndView mv) {
 		// 未入力チェック
 		if (isNull(userName) || isNull(password) || isNull(email) || isNull(email) || isNull(name) || isNull(address)
 				|| isNull(tel)) {
@@ -63,10 +65,12 @@ public class AccountController {
 			mv.setViewName("loginLogout/signup");
 			return mv;
 		}
-//		// チェックを通過したらデータベースに反映させる
-//		Users newUserAccount = new Users(userName, password, email, name, address, tel);
-//		usersRepository.saveAndFlush(newUserAccount);
-//		
+		// チェックを通過したらデータベースに反映させる
+		Users newUserAccount = new Users(userName, address, email, tel, name, password, addressnum);
+		usersRepository.saveAndFlush(newUserAccount);
+//		List<Users> users = usersRepository.findAll();
+//		System.out.println(users);
+		
 		// 新規登録完了 画面に遷移
 		mv.setViewName("loginLogout/completeSignup");
 
