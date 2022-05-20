@@ -1,0 +1,13 @@
+<!-- カートに入れた商品一覧 -->
+<div class="col-4 box1">
+	<ul th:each="item:${items}">
+		<li th:text="${item.value.image}"></li>
+		<li th:text="${item.value.name}"></li>
+		<li th:text="${item.value.price}"></li>
+	</ul>
+</div>
+
+<!-- 合計金額 -->
+<div class="col-4">
+	<p class="sum" th:text="|総計:${total}|"></p>
+</div>

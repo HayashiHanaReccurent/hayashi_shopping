@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * itemテーブル(商品情報のテーブル)
@@ -33,6 +34,9 @@ public class Items {
 
 	@Column(name = "delivery_days")
 	private Integer deliverDays;
+	
+	@Transient
+	private Integer quantity;
 
 	// getter
 	public Integer getId() {
@@ -57,5 +61,13 @@ public class Items {
 
 	public Integer getDeliverDays() {
 		return deliverDays;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 }

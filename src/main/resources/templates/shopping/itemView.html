@@ -21,13 +21,15 @@
         <div class="row">
         <h1>商品一覧</h1>
         <hr>
-            <div class="col-4 box1">
-                <ul th:each="item:${items}">
-                    <li th:text="${item.image}"></li>
-                    <li th:text="${item.name}"></li>
-                    <li th:text="${item.price}"></li>
-                </ul>
-            </div>
+            <!-- 商品一覧 -->
+                <div class="col-4 box1">
+                    <ul th:each="item:${items}">
+                        <li th:text="${item.image}"></li>
+                        <li th:text="${item.name}"></li>
+                        <li th:text="${item.price}"></li>
+                        <a th:href="|cart/add/${item.id}|">カートに追加</a>
+                    </ul>
+                </div>
 
         </div>
 
