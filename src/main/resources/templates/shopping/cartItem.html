@@ -4,6 +4,7 @@
 		<li th:text="${item.value.image}"></li>
 		<li th:text="${item.value.name}"></li>
 		<li th:text="${item.value.price}"></li>
+		<li><a th:href="|/cart/delete/${item.value.id}|">削除</a></li>
 	</ul>
 </div>
 

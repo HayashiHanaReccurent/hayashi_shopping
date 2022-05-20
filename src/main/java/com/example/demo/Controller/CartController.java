@@ -85,8 +85,33 @@ public class CartController {
 		mv.addObject("items", cartSession.getItems());
 		mv.addObject("total", cartSession.getTotal());
 
-		// カートの中身を表示するページに遷移
+		// カートの中身ページ遷移
 		mv.setViewName("shopping/cart");
 		return mv;
 	}
+	
+	//		<li><a th:href="|/cart/delete/${item.value.code}|">削除</a></li>
+	@RequestMapping("/cart/delete/{id}")
+	public ModelAndView deleteCart(
+			@PathVariable("id") int id, 
+			ModelAndView mv) {
+
+		//カートの情報を取得
+		Cart cartSession = getCartFromSession();
+
+		// カートの中からコードが一致するアイテムを削除
+		cartSession.deleteCart(id);
+		
+		// ページ表示に必要なデータを設定
+		mv.addObject("items", cartSession.getItems());
+		mv.addObject("total", cartSession.getTotal());
+		
+		// カートの中身ページ遷移
+		mv.setViewName("shopping/cart");
+
+		return mv;
+
+	}
+
+	
 }

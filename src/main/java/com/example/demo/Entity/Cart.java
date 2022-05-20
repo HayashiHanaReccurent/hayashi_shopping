@@ -56,12 +56,23 @@ public class Cart {
 	 */
 	public void recalcTotal() {
 		total = 0;
-//		<tr th:each="item:${items}">
-		// th:each = "変数" : 配列
-		//
 		for (Items item : items.values()) {
 			// 価格x数量を合計に入れる
 			total += item.getPrice() * item.getQuantity();
 		}
 	}
+	
+	/**
+	 * カートの削除処理
+	 * 
+	 * @param itemCode
+	 */
+	public void deleteCart(int itemId) {
+		// Itemsクラスのidを使用してカート配列から削除
+		items.remove(itemId);
+
+		// カートの中身を再計算する
+		recalcTotal();
+	}
+	
 }
