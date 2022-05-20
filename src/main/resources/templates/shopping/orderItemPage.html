@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/main.css">
+        <title>配送先・支払方法の入力</title>
+</head>
+
+<body>
+    <header>
+        <!-- メニュー  memu.htmlの内容と置き換える-->
+        <span th:replace="/menu"></span>
+    </header>
+    <h1>ご注文商品の確認</h1>
+    <!-- カートの中身の商品一覧 cartItem.htmlの内容と置き換える -->
+    <span th:replace="/shopping/cartItem"></span>
+    <!-- 商品一覧 -->
+    <div class="col-4 box1">
+
+
+    </div>
+    <!-- エラーメッセージを表示 -->
+    <span th:text="${message}" class="msgError"></span>
+    <!-- 住所入力フォーム -->
+    <h2>配送先を入力してください</h2>
+    <form action="/order/confirm" method="post">
+           <!--  
+        <p>
+			名前<br> <input type="text" name="name" th:value="${users.name]">
+		</p>
+        <p>
+			郵便番号<br> <input type="text" name="addressnum" placeholder="xxx-xxxx">
+		</p>
+		<p>
+			住所<br> <input type="text" name="address" placeholder="">
+		</p>
+		<p>
+			電話番号<br> <input type="text" name="tel" placeholder="xxx-xxxx-xxxx">
+		</p>
+		<p>
+			メールアドレス<br> <input type="text" name="email" placeholder="">
+		</p>
+         -->
+
+    </form>
+    <!-- ログアウトボタン logout.htmlの内容と置き換える -->
+    <span th:replace="/logout"></span>
+</body>
+
+</html>

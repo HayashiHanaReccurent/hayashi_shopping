@@ -20,8 +20,14 @@
         <h1>カートの中身</h1>
     <!-- カートの中身の商品一覧 cartItem.htmlの内容と置き換える -->
     <span th:replace="/shopping/cartItem"></span>
-    <!-- ログアウトボタン logout.htmlの内容と置き換える -->
-    <span th:replace="/logout"></span>
+    
+    	<!-- 注文する -->
+	<form action="/order">
+		<input type="submit" value="注文する" />
+	</form>
+
+	<!-- ログアウトボタン logout.htmlの内容と置き換える -->
+	<span th:replace="/logout"></span>
 </body>
 
 </html>

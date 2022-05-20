@@ -90,6 +90,12 @@ public class CartController {
 		return mv;
 	}
 	
+	/**
+	 * カートの削除処理
+	 * @param id
+	 * @param mv
+	 * @return
+	 */
 	//		<li><a th:href="|/cart/delete/${item.value.code}|">削除</a></li>
 	@RequestMapping("/cart/delete/{id}")
 	public ModelAndView deleteCart(
