@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.Entity.Items;
 import com.example.demo.Entity.Users;
+import com.example.demo.Repository.ItemRepository;
 import com.example.demo.Repository.UsersRepository;
 
 @Controller
@@ -22,6 +24,9 @@ public class AccountController {
 
 	@Autowired
 	UsersRepository usersRepository;
+	
+	@Autowired
+	ItemRepository itemRepository;
 
 	/**
 	 * 初期画面設定(ログイン画面の表示)
@@ -103,7 +108,11 @@ public class AccountController {
 			return mv;
 		}
 
-		// 照合できたらセッションに入れてトップページに遷移
+		// 照合できたら商品情報をすべて取得
+		List <Items> itemList = itemRepository.findAll();
+		mv.addObject("items",itemList);
+		
+		//セッションに入れてトップページに遷移
 		session.setAttribute("userName", userName);
 		mv.setViewName("shopping/itemView");
 		return mv;
