@@ -35,11 +35,10 @@ public class AccountController {
 	 * @return
 	 */
 	@RequestMapping("/")
-	public ModelAndView start(ModelAndView mv) {
+	public String start() {
 		// セッション情報の削除
 		session.invalidate();
-		mv.setViewName("loginLogout/index");
-		return mv;
+		return "loginLogout/index";
 	}
 
 	// 新規登録画面に遷移する処理
@@ -117,6 +116,14 @@ public class AccountController {
 		mv.setViewName("shopping/itemView");
 		return mv;
 	}
+	
+	//ログアウト処理
+		//<a href="logout">ログアウト</a>
+		@RequestMapping("/logout")
+		public String logout() {
+			return start();
+		}
+
 
 	/**
 	 * 未入力チェックメソッド
