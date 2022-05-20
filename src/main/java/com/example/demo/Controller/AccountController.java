@@ -1,5 +1,7 @@
 package com.example.demo.Controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,7 @@ public class AccountController {
 	 * @return
 	 */
 	@RequestMapping("/")
-	public ModelAndView login(ModelAndView mv) {
+	public ModelAndView start(ModelAndView mv) {
 		// セッション情報の削除
 		session.invalidate();
 		mv.setViewName("loginLogout/index");
@@ -55,8 +57,8 @@ public class AccountController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ModelAndView signup(@RequestParam("userName") String userName, @RequestParam("password") String password,
 			@RequestParam("email") String email, @RequestParam("name") String name,
-			@RequestParam("address") String address, @RequestParam("tel") String tel, 
-			@RequestParam("addressnum")String addressnum,  ModelAndView mv) {
+			@RequestParam("address") String address, @RequestParam("tel") String tel,
+			@RequestParam("addressnum") String addressnum, ModelAndView mv) {
 		// 未入力チェック
 		if (isNull(userName) || isNull(password) || isNull(email) || isNull(email) || isNull(name) || isNull(address)
 				|| isNull(tel)) {
@@ -68,12 +70,42 @@ public class AccountController {
 		// チェックを通過したらデータベースに反映させる
 		Users newUserAccount = new Users(userName, address, email, tel, name, password, addressnum);
 		usersRepository.saveAndFlush(newUserAccount);
-//		List<Users> users = usersRepository.findAll();
-//		System.out.println(users);
-		
+
 		// 新規登録完了 画面に遷移
 		mv.setViewName("loginLogout/completeSignup");
 
+		return mv;
+	}
+
+	// ログインボタン押下時の処理(ログイン処理)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ModelAndView login(@RequestParam("userName") String userName, @RequestParam("password") String password,
+			ModelAndView mv) {
+		// 未入力チェック
+		if (isNull(userName) || isNull(password)) {
+			// 未入力ならエラーメッセージを表示
+			mv.addObject("message", "未入力の項目があります。");
+			mv.setViewName("loginLogout/index");
+			return mv;
+		}
+
+		// 入力済ならログインチェックに入る
+		// 登録されたユーザー情報をすべて取得する
+		List<Users> userList = usersRepository.findAll();
+
+		// 入力された情報がデータベースにあるか調べる
+		userList = usersRepository.findByUserNameEqualsAndPasswordEquals(userName, password);
+
+		// 一致する情報がない場合はエラーメッセージを表示
+		if (userList.size() == 0) {
+			mv.addObject("message", "ユーザーネーム、またはパスワードが違います");
+			mv.setViewName("loginLogout/index");
+			return mv;
+		}
+
+		// 照合できたらセッションに入れてトップページに遷移
+		session.setAttribute("userName", userName);
+		mv.setViewName("shopping/itemView");
 		return mv;
 	}
 

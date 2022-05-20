@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>ユーザーログイン画面</title>
+	<meta charset="UTF-8">
+	<title>ユーザーログイン画面</title>
 </head>
 
 <body>
 	<h1>ログイン</h1>
+	<!-- エラーメッセージを表示 -->
+	<span th:text="${message}" style="color: red;"></span>
 	<!-- ログインフォーム -->
 	<form action="/login" method="post">
 		<p>
-			メールアドレス<br> <input type="text" name="email">
+			ユーザーネーム<br> <input type="text" name="userName">
 		</p>
 		<p>
 			パスワード<br> <input type="text" name="password">
@@ -18,9 +21,9 @@
 		<button type="submit">ログイン</button>
 	</form>
 	<!--   新規登録ボタン -->
-		<p>
-			<a href="/signup">新規登録はこちら</a>
-		</p>
+	<p>
+		<a href="/signup">新規登録はこちら</a>
+	</p>
 </body>
 
 </html>
