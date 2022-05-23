@@ -20,18 +20,22 @@ public class ItemController {
 
 	@Autowired
 	UsersRepository usersRepository;
-	
+
 	@Autowired
 	ItemRepository itemRepository;
-	
-	//初期画面処理
+
+	// 初期画面処理
 	@RequestMapping("/itemView")
 	public ModelAndView itemView(ModelAndView mv) {
-		//商品情報をすべて取得
-		List <Items> itemList = itemRepository.findAll();
-		mv.addObject("items",itemList);
-		
-		//遷移先を指定
+		// 商品情報をすべて取得
+		List<Items> itemList = itemRepository.findAll();
+		mv.addObject("items", itemList);
+
+		//商品画像を表示
+		String imgurl = "/image.png";
+		mv.addObject("coffee_vietnum.png", imgurl);
+
+		// 遷移先を指定
 		mv.setViewName("shopping/itemView");
 		return mv;
 	}

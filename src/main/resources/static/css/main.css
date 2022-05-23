@@ -34,35 +34,8 @@
 .pl-15 {padding-left: 15px;}
 .pl-30 {padding-left: 30px;}
 .pl-45 {padding-left: 45px;}
-.box1{
-    background-color: rgb(134, 134, 134);
 
-    height: 250px;
-    color: #FFFFFF;
-}
 
-.box2{
-    background-color: rgb(70, 70, 70);
-
-    height: 250px;
-    color: #FFFFFF;
-}
-
-.box3{
-    background-color: rgb(117, 117, 117);
-
-    height: 200px;
-    color: #FFFFFF;
-}
-
-.box4{
-    background-color: rgb(184, 184, 184);
-
-    height: 200px;
-    color: #FFFFFF;
-}
-
-.imageBox{
-    background-color: #c9c9c9;
-    width: 80%;
+.itemsImg{
+    width: 300px;
 }
