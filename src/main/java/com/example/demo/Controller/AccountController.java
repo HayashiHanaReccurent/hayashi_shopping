@@ -111,10 +111,21 @@ public class AccountController {
 		List <Items> itemList = itemRepository.findAll();
 		mv.addObject("items",itemList);
 		
-		//セッションに入れてトップページに遷移
+		//ユーザーネームをセッションに入れてトップページに遷移(ヘッダー表示用)
 		session.setAttribute("userName", userName);
-		mv.setViewName("shopping/itemView");
+		//配送情報の入力時に使うので住所などもセッションに入れる
+		session.setAttribute("name", userList.get(0).getName());
+		session.setAttribute("addressnum", userList.get(0).getAddressnum());
+		session.setAttribute("address", userList.get(0).getAddress());
+		session.setAttribute("tel", userList.get(0).getTel());
+				mv.setViewName("shopping/itemView");
 		return mv;
+	}
+	
+	//マイページ　ボタン押下時の処理
+	@RequestMapping("/mypage")
+	public String mypage() {
+		return "users/mypage";
 	}
 	
 	//ログアウト処理

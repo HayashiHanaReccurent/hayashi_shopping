@@ -33,9 +33,13 @@ public class OrderController {
 	 * @return
 	 */
 	@RequestMapping("/order")
-	public ModelAndView order(ModelAndView mv) {
+	public ModelAndView order(
+			ModelAndView mv) {
 		//カートのセッション情報を取得
 		Cart cartSession = getCartFromSession();
+		
+		
+//		Users userInfo = UsersRepository.findById(id).get();
 		
 		//カートに追加した商品情報と総額を表示
 		mv.addObject("items", cartSession.getItems());
@@ -53,6 +57,7 @@ public class OrderController {
 		// セッションのカート情報を取得(なければ作成)
 		// 戻ってきた型をCart型にする（書かないとObject型になる）
 		Cart cartSession = (Cart) session.getAttribute("cart");
+		
 
 		// カート情報のセッションがない場合、カート初期処理
 		if (cartSession == null) {
@@ -63,6 +68,7 @@ public class OrderController {
 		return cartSession;
 	}
 
+	
 	/**
 	 * 未入力チェックメソッド
 	 * 

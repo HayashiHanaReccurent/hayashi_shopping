@@ -87,4 +87,8 @@ public class Users {
 	public String getPassword() {
 		return password;
 	}
+
+	public String getAddressnum() {
+		return addressnum;
+	}
 }
