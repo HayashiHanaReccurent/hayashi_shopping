@@ -27,6 +27,15 @@ public class Pay {
 	@Column(name = "credit_security")
 	private Integer creditSecurity;
 
+	//コンストラクタ
+	public Pay() {
+		super();
+	}
+	public Pay(String creditNo, Integer creditSecurity) {
+		super();
+		this.creditNo = creditNo;
+		this.creditSecurity = creditSecurity;
+	}
 	// getter
 	public Integer getId() {
 		return id;

@@ -25,8 +25,6 @@
 	<span th:replace="/shopping/cartItem"></span>
 	<!-- 商品一覧 -->
 	<div class="col-4 box1"></div>
-	<!-- エラーメッセージを表示 -->
-	<span th:text="${message}" class="msgError"></span>
 	<!-- 住所入力フォーム -->
 	<h2>配送先の確認</h2>
 
@@ -44,17 +42,19 @@
     </p>
 
 
-	<a href=""><button>配送先を変更する</button></a>
+	<a href=""><button>配送先を変更する</button></a><br>
 
 	<!-- 支払い情報の入力・確認 -->
+	<!-- 未入力時はエラーメッセージを表示 -->
+	<span th:text="${message}" style="color: red;"></span><br>
 	<form action="/order/confirm" method="post">
 		<p>
 			クレジットカード番号<br>
-			<input type="text" name="credit_no">
+			<input type="text" name="creditNo">
 		</p>
 		<p>
 			セキュリティコード<br>
-			<input type="password" name="credit_security">
+			<input type="password" name="creditSecurity">
 		</p>
 
 		<button type="submit">注文内容を確認する</button>
