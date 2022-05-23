@@ -25,40 +25,33 @@
 	<span th:replace="/shopping/cartItem"></span>
 	<!-- 商品一覧 -->
 	<div class="col-4 box1"></div>
-	<!-- 住所入力フォーム -->
-	<h2>配送先の確認</h2>
+	<!-- エラーメッセージを表示 -->
+	<span th:text="${message}" class="msgError"></span>
 
-   <p>
-        名前<br> <span name="name" th:text="${session.name}"></span>
-    </p>
-    <p>
-        郵便番号<br> <span name="addressnum" th:text="${session.addressnum}"></span>
-    </p>
-    <p>
-        住所<br> <span name="address" th:text="${session.address}"></span>
-    </p>
-    <p>
-        電話番号<br> <span name="tel" th:text="${session.tel}"></span>
-    </p>
+	<!-- 配送先の情報を表示(デフォルトは新規登録時の住所を表示)-->
+	<!--配送先 shippingAddress.htmlの内容と置き換える-->
+	 <h2>配送先の確認</h2>
+	<span th:replace="/shopping/shippingAddress"></span>
 
 
-	<a href=""><button>配送先を変更する</button></a><br>
+	<a href=""><button>配送先を変更する</button></a>
 
 	<!-- 支払い情報の入力・確認 -->
-	<!-- 未入力時はエラーメッセージを表示 -->
-	<span th:text="${message}" style="color: red;"></span><br>
+<h2>支払い方法の確認</h2>
 	<form action="/order/confirm" method="post">
 		<p>
-			クレジットカード番号<br>
-			<input type="text" name="creditNo">
+			クレジットカード番号<br> <input type="text" name="creditNo">
 		</p>
 		<p>
-			セキュリティコード<br>
-			<input type="password" name="creditSecurity">
+			セキュリティコード<br> <input type="password" name="creditSecurity">
 		</p>
+		
+	<!-- エラーメッセージを表示 -->
+	<span th:text="${message}" style="color: red;"></span>
 
 		<button type="submit">注文内容を確認する</button>
 	</form>
+
 	<!-- ログアウトボタン logout.htmlの内容と置き換える -->
 	<span th:replace="/logout"></span>
 </body>

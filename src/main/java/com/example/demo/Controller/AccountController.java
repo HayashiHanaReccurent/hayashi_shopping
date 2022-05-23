@@ -114,6 +114,7 @@ public class AccountController {
 		//ユーザーネームをセッションに入れてトップページに遷移(ヘッダー表示用)
 		session.setAttribute("userName", userName);
 		//配送情報の入力時に使うので住所などもセッションに入れる
+		session.setAttribute("id", userList.get(0).getId());
 		session.setAttribute("name", userList.get(0).getName());
 		session.setAttribute("addressnum", userList.get(0).getAddressnum());
 		session.setAttribute("address", userList.get(0).getAddress());

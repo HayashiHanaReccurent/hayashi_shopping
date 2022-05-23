@@ -39,8 +39,8 @@ public class Users {
 
 	@Column(name = "password")
 	private String password;
-	
-	@Column(name="addressnum")
+
+	@Column(name = "addressnum")
 	private String addressnum;
 
 	// コンストラクタ
@@ -48,7 +48,8 @@ public class Users {
 		super();
 	}
 
-	public Users(String userName, String address, String email, String tel, String name, String password, String addressnum) {
+	public Users(String userName, String address, String email, String tel, String name, String password,
+			String addressnum) {
 		super();
 		this.userName = userName;
 		this.address = address;

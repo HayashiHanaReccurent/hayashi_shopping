@@ -15,6 +15,32 @@
 <title>注文内容の確認</title>
 </head>
 <body>
+    <header>
+		<!-- メニュー  memu.htmlの内容と置き換える-->
+		<span th:replace="/menu"></span>
+	</header>
 
+    <!-- カートの中身の商品一覧 cartItem.htmlの内容と置き換える -->
+    <h1>注文内容の確認</h1>
+    <h2>購入商品</h2>
+    <span th:replace="/shopping/cartItem"></span>
+    
+    <!-- 配送先の情報を表示(デフォルトは新規登録時の住所を表示)-->
+	<!--配送先 shippingAddress.htmlの内容と置き換える-->
+    <h2>配送先の確認</h2>
+	<span th:replace="/shopping/shippingAddress"></span>
+
+        <h2>支払い方法の確認</h2>
+    <p>
+        クレジットカード番号<br>
+        <span type="text" name="creditNo" th:text="${session.creditNo}"></span>
+    </p>
+    <p>
+        セキュリティコード<br>
+        <span type="password" name="creditSecurity" th:text="${session.creditSecurity}"></span>
+    </p>
+
+            <!-- ログアウトボタン logout.htmlの内容と置き換える -->
+            <span th:replace="/logout"></span>  
 </body>
 </html>
