@@ -24,7 +24,7 @@ public class AccountController {
 
 	@Autowired
 	UsersRepository usersRepository;
-	
+
 	@Autowired
 	ItemRepository itemRepository;
 
@@ -108,34 +108,84 @@ public class AccountController {
 		}
 
 		// 照合できたら商品情報をすべて取得
-		List <Items> itemList = itemRepository.findAll();
-		mv.addObject("items",itemList);
-		
-		//ユーザーネームをセッションに入れてトップページに遷移(ヘッダー表示用)
+		List<Items> itemList = itemRepository.findAll();
+		mv.addObject("items", itemList);
+
+		// ユーザーネームをセッションに入れてトップページに遷移(ヘッダー表示用)
+		session.setAttribute("userList", userList);
 		session.setAttribute("userName", userName);
-		//配送情報の入力時に使うので住所などもセッションに入れる
+		// 配送情報の入力時に使うので住所などもセッションに入れる
 		session.setAttribute("id", userList.get(0).getId());
 		session.setAttribute("name", userList.get(0).getName());
+		session.setAttribute("password", userList.get(0).getPassword());
+		session.setAttribute("email", userList.get(0).getEmail());
 		session.setAttribute("addressnum", userList.get(0).getAddressnum());
 		session.setAttribute("address", userList.get(0).getAddress());
 		session.setAttribute("tel", userList.get(0).getTel());
-				mv.setViewName("shopping/itemView");
+		mv.setViewName("shopping/itemView");
 		return mv;
 	}
-	
-	//マイページ　ボタン押下時の処理
+
+	// マイページ ボタン押下時の処理
 	@RequestMapping("/mypage")
 	public String mypage() {
 		return "users/mypage";
 	}
-	
-	//ログアウト処理
-		//<a href="logout">ログアウト</a>
-		@RequestMapping("/logout")
-		public String logout() {
-			return start();
-		}
 
+	// 登録情報を更新ページに遷移時の処理
+	@RequestMapping("/editInfo")
+	public ModelAndView editInfo(ModelAndView mv) {
+		mv.setViewName("users/editInfo");
+		return mv;
+	}
+	
+	//登録情報を更新ボタン押下時の処理
+	@RequestMapping(value="/editInfo", method = RequestMethod.POST)
+	public ModelAndView editInfo(
+			@RequestParam("userName") String userName,
+			@RequestParam("password") String password,
+			@RequestParam("email") String email,
+			@RequestParam("name") String name,
+			@RequestParam("addressnum") String addressnum,
+			@RequestParam("address") String address,
+			@RequestParam("tel") String tel,
+			ModelAndView mv) {
+		
+		//未入力チェック
+		if(isNull(userName) || isNull(password) || isNull(email) ||
+		   isNull(name) || isNull(addressnum) || isNull(address) || isNull(tel)) {
+			// 未入力ならエラーメッセージを表示
+			mv.addObject("message", "未入力の項目があります");
+			
+			//遷移先の指定
+			mv.setViewName("users/editInfo");
+			return mv;
+		}
+		// 未入力チェックを通過した場合、 セッションからid取得
+		Users userInfo = (Users) session.getAttribute("userList");
+		Integer id = userInfo.getId();
+		
+		//入力された値に更新
+		Users editUserAccount = new Users(userName, password, email, name, addressnum, address, tel);
+
+		// 入力された値をデータベースに反映させる
+		usersRepository.saveAndFlush(editUserAccount);
+		
+		// セッション情報を再取得する
+		session.setAttribute("userInfo", editUserAccount);
+		mv.addObject("userInfo", session.getAttribute("userInfo"));
+		mv.setViewName("users/mypage");
+		
+		return mv;
+	}
+	
+
+	// ログアウト処理
+	// <a href="logout">ログアウト</a>
+	@RequestMapping("/logout")
+	public String logout() {
+		return start();
+	}
 
 	/**
 	 * 未入力チェックメソッド

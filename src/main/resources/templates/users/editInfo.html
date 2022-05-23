@@ -12,7 +12,7 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/css/main.css}">
-<title>マイページ</title>
+<title>登録情報の変更</title>
 </head>
 <body>
 	<header>
@@ -20,12 +20,33 @@
 		<span th:replace="/menu"></span>
 	</header>
 
-    <h1>マイページ</h1>
-        <ul>
-            <li><a href="/editInfo">登録情報の変更</a> </li>
-            <li>支払い情報の変更</li>
-            <li>注文履歴</li>
-        </ul>
+    <h1>登録情報の変更</h1>
+    <!-- エラーメッセージを表示 -->
+	<span th:text="${message}" style="color: red;"></span>
+    <form action="/editInfo" method="post">
+        <p>
+			ユーザーネーム<br> <input type="text" name="userName" th:value="${session.userName}">
+		</p>
+		<p>
+			パスワード<br> <input type="text" name="password" th:value="${session.password}">
+		</p>
+		<p>
+			メールアドレス<br> <input type="text" name="email" th:value="${session.email}">
+		</p>
+		<p>
+			名前<br> <input type="text" name="name" th:value="${session.name}">
+		</p>
+        <p>
+			郵便番号<br> <input type="text" name="addressnum" th:value="${session.addressnum}">
+		</p>
+		<p>
+			住所<br> <input type="text" name="address" th:value="${session.address}">
+		</p>
+		<p>
+			電話番号<br> <input type="text" name="tel" th:value="${session.tel}">
+		</p>
+		<button type="submit">更新</button>
+    </form>
 
         <!-- ログアウトボタン logout.htmlの内容と置き換える -->
         <span th:replace="/logout"></span>  

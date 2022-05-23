@@ -49,6 +49,7 @@ public class Users {
 		super();
 	}
 
+	//主キー以外を引数にしたコンストラクタ
 	public Users(String userName, String address, String email, String tel, String name, String password,
 			String addressnum) {
 		super();
