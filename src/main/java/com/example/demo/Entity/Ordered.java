@@ -32,6 +32,13 @@ public class Ordered {
 	@Column(name = "total_price")
 	private Integer totalPrice;
 
+	//コンストラクタ
+	public Ordered(Integer userId, Date orderDate, Integer totalPrice) {
+		super();
+		this.userId = userId;
+		this.orderedDate = orderDate;
+		this.totalPrice = totalPrice;
+		}
 	// getter
 	public Integer getId() {
 		return id;

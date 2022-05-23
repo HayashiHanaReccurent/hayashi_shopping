@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.servlet.http.HttpSession;
 
 /**
  * userテーブル(ユーザー情報のテーブル)
@@ -91,5 +92,10 @@ public class Users {
 
 	public String getAddressnum() {
 		return addressnum;
+	}
+
+	public static HttpSession get(int i) {
+	 
+		return null;
 	}
 }

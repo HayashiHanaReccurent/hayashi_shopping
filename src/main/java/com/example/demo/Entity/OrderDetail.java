@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 /**
  * order_detail(注文した商品の情報のテーブル)
+ * 
  * @author student
  *
  */
@@ -29,6 +30,18 @@ public class OrderDetail {
 
 	@Column(name = "quantity")
 	private Integer quantity;
+
+	// コンストラクタ
+	public OrderDetail() {
+		super();
+	}
+	
+	public OrderDetail(Integer orderedId, Integer itemId, Integer quantity) {
+		super();
+		this.orderedId = orderedId;
+		this.itemId = itemId;
+		this.quantity = quantity;
+	}
 
 	// getter
 	public Integer getId() {
