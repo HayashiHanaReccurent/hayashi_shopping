@@ -60,6 +60,23 @@ public class CartController {
 		mv.setViewName("shopping/cart");
 		return mv;
 	}
+	
+	/**
+	 * カートの中身を表示する処理
+	 * @param mv
+	 * @return
+	 */
+	@RequestMapping("/orderComplete")
+	public ModelAndView cartListOrder(ModelAndView mv) {
+		//カートのセッション情報を取得
+		Cart cartSession = getCartFromSession();
+		
+		//カートに追加した商品情報と総額を表示
+		mv.addObject("items", cartSession.getItems());
+		mv.addObject("total", cartSession.getTotal());
+		mv.setViewName("shopping/orderComplete");
+		return mv;
+	}
 
 	/**
 	 * カートに追加ボタン押下時の処理(カート追加処理)

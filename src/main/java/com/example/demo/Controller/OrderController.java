@@ -84,7 +84,12 @@ public class OrderController {
 	 */
 	@RequestMapping(value = "/order/confirm", method = RequestMethod.POST)
 	public ModelAndView orderConfirm(ModelAndView mv) {
+		// カートのセッション情報を取得
+		Cart cartSession = getCartFromSession();
 
+		// カートに追加した商品情報と総額を表示
+		mv.addObject("items", cartSession.getItems());
+		mv.addObject("total", cartSession.getTotal());
 		// 注文確認画面に遷移
 		mv.setViewName("shopping/orderComplete");
 
@@ -116,6 +121,14 @@ public class OrderController {
 //		// 確認時に使うためにセッションに追加
 //		session.setAttribute("creditNo", creditNo);
 //
+	
+	// カートのセッション情報を取得
+//			Cart cartSession = getCartFromSession();
+//
+//			// カートに追加した商品情報と総額を表示
+//			mv.addObject("items", cartSession.getItems());
+//			mv.addObject("total", cartSession.getTotal());
+	
 //		// 注文確認画面に遷移
 //		mv.setViewName("shopping/orderComplete");
 //
@@ -128,6 +141,10 @@ public class OrderController {
 	public ModelAndView doOrder(ModelAndView mv) {
 		// 0.カートの情報を取得
 		Cart cartSession = getCartFromSession();
+
+		// カートに追加した商品情報と総額を表示
+		mv.addObject("items", cartSession.getItems());
+		mv.addObject("total", cartSession.getTotal());
 
 		// 主キーを取ってきてね！→取得
 //		Users user = new Users();
