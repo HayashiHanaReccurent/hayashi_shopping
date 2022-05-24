@@ -34,8 +34,10 @@ public class Pay {
 	public Pay() {
 		super();
 	}
-	public Pay(String creditNo, Integer creditSecurity) {
+	//主キー以外を引数にしたコンストラクタ
+	public Pay(Integer userId, String creditNo, Integer creditSecurity) {
 		super();
+		this.userId = userId;
 		this.creditNo = creditNo;
 		this.creditSecurity = creditSecurity;
 	}

@@ -115,6 +115,7 @@ public class AccountController {
 		session.setAttribute("userList", userList);
 		// 配送情報の入力時に使うので住所などもセッションに入れる
 		session.setAttribute("userInfo", userList.get(0));
+		session.setAttribute("id", userList.get(0).getId());
 //		session.setAttribute("name", userList.get(0).getName());
 //		session.setAttribute("password", userList.get(0).getPassword());
 //		session.setAttribute("email", userList.get(0).getEmail());
@@ -162,8 +163,8 @@ public class AccountController {
 			return mv;
 		}
 		// 未入力チェックを通過した場合、 セッションからid取得
-		Users userInfo = (Users) session.getAttribute("userInfo");
-		Integer id = userInfo.getId();
+		Users userId = (Users) session.getAttribute("id");
+		Integer id = userId.getId();
 
 		// 入力された値に更新
 		Users editUserAccount = new Users(id, userName, address, email, tel, name, password, addressnum);

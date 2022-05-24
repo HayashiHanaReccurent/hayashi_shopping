@@ -36,6 +36,22 @@
 .pl-45 {padding-left: 45px;}
 
 
+
+/*商品画像の調整*/
 .itemsImg{
     width: 300px;
 }
+
+.conteiner{
+	flex-wrap: wrap;
+}
+
+.row{
+	display:flex;
+}
+
+.itemBox{
+	display: flex;
+    flex-direction: column;
+}
+
