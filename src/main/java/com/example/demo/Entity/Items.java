@@ -35,6 +35,18 @@ public class Items {
 	@Column(name = "delivery_days")
 	private Integer deliverDays;
 	
+	@Column(name = "caption")
+	private String caption;
+	
+	//コンストラクタ
+	public Items() {
+		super();
+	}
+	
+	public Items(String caption) {
+		this.caption = caption;
+	}
+	
 	@Transient
 	private Integer quantity;
 

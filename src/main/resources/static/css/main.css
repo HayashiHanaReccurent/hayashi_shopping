@@ -56,3 +56,9 @@
     flex-direction: column;
 }
 
+/*ulに最初からついているmarginとpaddingを消す*/
+.orderHistory ul{
+	padding: 0;
+	margin: 0;
+}
+
