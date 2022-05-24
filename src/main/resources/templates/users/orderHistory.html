@@ -12,7 +12,7 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 <link rel="stylesheet" th:href="@{/css/main.css}">
-<title>マイページ</title>
+<title>注文履歴</title>
 </head>
 <body>
 	<header>
@@ -20,15 +20,8 @@
 		<span th:replace="/menu"></span>
 	</header>
 
-    <h1>マイページ</h1>
-    <!-- 更新ができたらメッセージを表示 -->
-	<span th:text="${message}" style="color: rgb(23, 36, 150);"></span>
-        <ul>
-            <li><a href="/editInfo">登録情報の変更</a> </li>
-            <li><a href="/orderHistory">支払い情報の変更</a></li>
-            <li>注文履歴</li>
-        </ul>
-
+  <h1>ここに注文履歴を表示</h1>
+  
         <!-- ログアウトボタン logout.htmlの内容と置き換える -->
         <span th:replace="/logout"></span>  
             <!-- Optional JavaScript; choose one of the two! -->

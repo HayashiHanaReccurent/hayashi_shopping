@@ -7,7 +7,9 @@
 		<!-- 商品の名前 -->
 		<li th:text="${item.value.name}"></li>
 		<!-- 商品の値段 -->
-		<li th:text="${item.value.price}"></li>
+		<li th:text="|${item.value.price}| + 円"></li>
+		<!-- 商品の個数 -->
+		<li th:text="|${item.value.quantity}| + 個"></li>
 		<!-- 商品の削除ボタン -->
 		<li><a th:href="|/cart/delete/${item.value.id}|">削除</a></li>
 	</ul>

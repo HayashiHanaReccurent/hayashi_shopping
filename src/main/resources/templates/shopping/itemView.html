@@ -20,13 +20,22 @@
 		<!-- メニュー  memu.htmlの内容と置き換える-->
 		<span th:replace="/menu"></span>
 	</header>
-	<div class="conteiner">
+	<div class="conteiner ml-30">
 		<h1>商品一覧</h1>
 		<hr>
+
+		<!-- 検索窓 -->
+		<form action="/search" method="post" class="mb-30">
+			<input type="text" name="searchWord">
+			<button>検索</button>
+		</form>
+
+
+
 		<div class="row">
 
 			<!-- 商品一覧 -->
-			<div class="itemBox ml-30" th:each="item:${items}">
+			<div class="itemBox " th:each="item:${items}">
 				<img th:src="|/image/${item.image}|" class="itemsImg">
 				<p th:text="${item.name}"></p>
 				<p th:text="${item.price}"></p>

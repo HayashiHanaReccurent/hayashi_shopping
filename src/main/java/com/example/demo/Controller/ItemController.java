@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.Entity.Items;
@@ -39,4 +41,21 @@ public class ItemController {
 		mv.setViewName("shopping/itemView");
 		return mv;
 	}
+	
+	/**
+	 * 商品の検索ボタンを押下時の処理
+	 * @param mv
+	 * @param searchWord
+	 * @return
+	 */
+	@RequestMapping(value="/search" ,method=RequestMethod.POST)
+	public ModelAndView search(
+			ModelAndView mv,
+			@RequestParam("searchWord") String searchWord) {
+		List<Items> itemList=itemRepository.findAllByNameContaining(searchWord);
+		mv.addObject("items",itemList);
+		mv.setViewName("shopping/itemView");
+		return mv;
+	}
+
 }
