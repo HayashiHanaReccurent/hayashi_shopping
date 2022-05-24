@@ -22,6 +22,34 @@
 
   <h1>ここに注文履歴を表示</h1>
   
+  
+	<table border="1">
+		<tr>
+			<th>注文日</th>
+			<th>商品</th>
+			<th>小計</th>
+		</tr>
+
+		<tr th:each="orderHistory : ${orderHistories}">
+			<!-- オーダー情報の表示  -->
+			<td
+				th:text="${#dates.format(orderHistory.order.orderedDate, 'yyyy-MM-dd')}"></td>
+
+			<td>
+				<ul th:each="orderDetailHistory : ${orderHistory.orderDetails}">
+					<li th:if="orderDetailHistory.item != null"
+						th:text="${orderDetailHistory.item.name}"></li>
+				</ul>
+			</td>
+			<td th:text="${orderHistory.order.totalPrice}"></td>
+		</tr>
+	</table>
+  
+  
+  
+  
+  
+  
         <!-- ログアウトボタン logout.htmlの内容と置き換える -->
         <span th:replace="/logout"></span>  
             <!-- Optional JavaScript; choose one of the two! -->

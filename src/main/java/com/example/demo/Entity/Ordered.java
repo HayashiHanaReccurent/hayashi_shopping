@@ -33,6 +33,9 @@ public class Ordered {
 	private Integer totalPrice;
 
 	//コンストラクタ
+	public Ordered() {
+		super();
+	}
 	public Ordered(Integer userId, Date orderDate, Integer totalPrice) {
 		super();
 		this.userId = userId;
