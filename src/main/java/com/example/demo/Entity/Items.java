@@ -82,4 +82,12 @@ public class Items {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
+
+	public String getCaption() {
+		return caption;
+	}
+
+	public void setCaption(String caption) {
+		this.caption = caption;
+	}
 }

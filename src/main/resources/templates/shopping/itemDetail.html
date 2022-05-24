@@ -23,18 +23,15 @@
 	<div class="conteiner">
 		<h1>商品詳細</h1>
 		<hr>
-        <!-- 検索窓 -->
-        <form action="/search" method="post">
-            <input type="text" name="searchWord">
-            <button>検索</button>
-        </form>
+		<!-- 商品詳細を表示(キャプション付き) -->
 		<div class="row">
 			<!-- 商品一覧 -->
 			<div class="itemBox ml-30" th:each="item:${items}">
 				<img th:src="|/image/${item.image}|" class="itemsImg">
 				<p th:text="${item.name}"></p>
-				<p th:text="${item.price}"></p>
-                <p th:text="${item.caption}"></p>
+				<p th:text="|${item.price}| + 円"></p>
+				<p th:text="${item.caption}"></p>
+              
 				<p>
 					<a th:href="|cart/add/${item.id}|">カートに追加</a>
 				</p>

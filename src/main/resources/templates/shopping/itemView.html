@@ -40,7 +40,7 @@
 				<img th:src="|/image/${item.image}|" class="itemsImg">
 			
 				<p th:text="${item.name}"></p>
-				<p th:text="${item.price}"></p>
+				<p th:text="|${item.price}| + 円"></p>
 				<p>	<a th:href="|/item/${item.id}/detail|">商品の詳細を見る</a></p>
 				<p>
 					<a th:href="|cart/add/${item.id}|">カートに追加</a>
