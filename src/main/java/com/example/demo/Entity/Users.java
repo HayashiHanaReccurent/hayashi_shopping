@@ -49,10 +49,24 @@ public class Users {
 		super();
 	}
 
-	//主キー以外を引数にしたコンストラクタ
+	// 主キー以外を引数にしたコンストラクタ
 	public Users(String userName, String address, String email, String tel, String name, String password,
 			String addressnum) {
 		super();
+		this.userName = userName;
+		this.address = address;
+		this.email = email;
+		this.tel = tel;
+		this.name = name;
+		this.password = password;
+		this.addressnum = addressnum;
+	}
+
+	// すべてを引数にしたコンストラクタ
+	public Users(Integer id, String userName, String address, String email, String tel, String name, String password,
+			String addressnum) {
+		super();
+		this.id = id;
 		this.userName = userName;
 		this.address = address;
 		this.email = email;
@@ -96,7 +110,7 @@ public class Users {
 	}
 
 	public static HttpSession get(int i) {
-	 
+
 		return null;
 	}
 }

@@ -19,7 +19,7 @@
 		<!-- メニュー  memu.htmlの内容と置き換える-->
 		<span th:replace="/menu"></span>
 	</header>
-
+ <div class="ml-15">
     <h1>登録情報の変更</h1>
     <!-- エラーメッセージを表示 -->
 	<span th:text="${message}" style="color: red;"></span>
@@ -50,6 +50,8 @@
 
         <!-- ログアウトボタン logout.htmlの内容と置き換える -->
         <span th:replace="/logout"></span>  
+        
+   </div>     
             <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
