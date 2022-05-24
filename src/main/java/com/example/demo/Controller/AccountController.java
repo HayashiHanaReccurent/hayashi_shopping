@@ -113,15 +113,14 @@ public class AccountController {
 
 		// ユーザーネームをセッションに入れてトップページに遷移(ヘッダー表示用)
 		session.setAttribute("userList", userList);
-		session.setAttribute("userName", userName);
 		// 配送情報の入力時に使うので住所などもセッションに入れる
-		session.setAttribute("id", userList.get(0).getId());
-		session.setAttribute("name", userList.get(0).getName());
-		session.setAttribute("password", userList.get(0).getPassword());
-		session.setAttribute("email", userList.get(0).getEmail());
-		session.setAttribute("addressnum", userList.get(0).getAddressnum());
-		session.setAttribute("address", userList.get(0).getAddress());
-		session.setAttribute("tel", userList.get(0).getTel());
+		session.setAttribute("userInfo", userList.get(0));
+//		session.setAttribute("name", userList.get(0).getName());
+//		session.setAttribute("password", userList.get(0).getPassword());
+//		session.setAttribute("email", userList.get(0).getEmail());
+//		session.setAttribute("addressnum", userList.get(0).getAddressnum());
+//		session.setAttribute("address", userList.get(0).getAddress());
+//		session.setAttribute("tel", userList.get(0).getTel());
 		mv.setViewName("shopping/itemView");
 		return mv;
 	}

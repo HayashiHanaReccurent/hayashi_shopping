@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.Entity.Cart;
 import com.example.demo.Entity.Items;
 import com.example.demo.Entity.OrderDetail;
 import com.example.demo.Entity.Ordered;
+import com.example.demo.Entity.Pay;
 import com.example.demo.Repository.OrderDetailRepository;
 import com.example.demo.Repository.OrderedRepository;
 import com.example.demo.Repository.PayRepository;
@@ -82,14 +84,14 @@ public class OrderController {
 	 * @param mv
 	 * @return
 	 */
-	@RequestMapping(value = "/order/confirm", method = RequestMethod.POST)
-	public ModelAndView orderConfirm(ModelAndView mv) {
-
-		// 注文確認画面に遷移
-		mv.setViewName("shopping/orderComplete");
-
-		return mv;
-	}
+//	@RequestMapping(value = "/order/confirm", method = RequestMethod.POST)
+//	public ModelAndView orderConfirm(ModelAndView mv) {
+//
+//		// 注文確認画面に遷移
+//		mv.setViewName("shopping/orderComplete");
+//
+//		return mv;
+//	}
 
 	/**
 	 * クレカ登録モード 注文内容を確認ボタン押下時の処理
@@ -99,28 +101,28 @@ public class OrderController {
 	 * @param mv
 	 * @return
 	 */
-//	@RequestMapping(value = "/order/confirm", method = RequestMethod.POST)
-//	public ModelAndView orderConfirm(@RequestParam("creditNo") String creditNo,
-//			@RequestParam(value = "creditSecurity", defaultValue = "") Integer creditSecurity, ModelAndView mv) {
-//
-//		// 未入力チェック(クレカ番号、セキュリティコード)
-//		if (isNull(creditNo) || creditSecurity == null || String.valueOf(creditSecurity).length() < 3) {
-//			mv.addObject("message", "未入力の項目があるかクレジットカードの情報が間違っています");
-//			mv.setViewName("shopping/orderItemPage");
-//			return mv;
-//		}
-//
-//		// 入力済ならデータベースにクレカ情報を登録
-//		Pay newPayInfo = new Pay(creditNo, creditSecurity);
-//		payRepository.saveAndFlush(newPayInfo);
-//		// 確認時に使うためにセッションに追加
-//		session.setAttribute("creditNo", creditNo);
-//
-//		// 注文確認画面に遷移
-//		mv.setViewName("shopping/orderComplete");
-//
-//		return mv;
-//	}
+	@RequestMapping(value = "/order/confirm", method = RequestMethod.POST)
+	public ModelAndView orderConfirm(@RequestParam("creditNo") String creditNo,
+			@RequestParam(value = "creditSecurity", defaultValue = "") Integer creditSecurity, ModelAndView mv) {
+
+		// 未入力チェック(クレカ番号、セキュリティコード)
+		if (isNull(creditNo) || creditSecurity == null || String.valueOf(creditSecurity).length() < 3) {
+			mv.addObject("message", "未入力の項目があるかクレジットカードの情報が間違っています");
+			mv.setViewName("shopping/orderItemPage");
+			return mv;
+		}
+
+		// 入力済ならデータベースにクレカ情報を登録
+		Pay newPayInfo = new Pay(creditNo, creditSecurity);
+		payRepository.saveAndFlush(newPayInfo);
+		// 確認時に使うためにセッションに追加
+		session.setAttribute("creditNo", creditNo);
+
+		// 注文確認画面に遷移
+		mv.setViewName("shopping/orderComplete");
+
+		return mv;
+	}
 
 	// 注文するボタン押下時の処理
 	// <form action="/doOrder" method="post">

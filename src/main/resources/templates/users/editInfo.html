@@ -25,25 +25,25 @@
 	<span th:text="${message}" style="color: red;"></span>
     <form action="/editInfo" method="post">
         <p>
-			ユーザーネーム<br> <input type="text" name="userName" th:value="${session.userName}">
+			ユーザーネーム<br> <input type="text" name="userName" th:value="${session.userInfo.userName}">
 		</p>
 		<p>
-			パスワード<br> <input type="text" name="password" th:value="${session.password}">
+			パスワード<br> <input type="text" name="password" th:value="${session.userInfo.password}">
 		</p>
 		<p>
-			メールアドレス<br> <input type="text" name="email" th:value="${session.email}">
+			メールアドレス<br> <input type="text" name="email" th:value="${session.userInfo.email}">
 		</p>
 		<p>
-			名前<br> <input type="text" name="name" th:value="${session.name}">
+			名前<br> <input type="text" name="name" th:value="${session.userInfo.name}">
 		</p>
         <p>
-			郵便番号<br> <input type="text" name="addressnum" th:value="${session.addressnum}">
+			郵便番号<br> <input type="text" name="addressnum" th:value="${session.userInfo.addressnum}">
 		</p>
 		<p>
-			住所<br> <input type="text" name="address" th:value="${session.address}">
+			住所<br> <input type="text" name="address" th:value="${session.userInfo.address}">
 		</p>
 		<p>
-			電話番号<br> <input type="text" name="tel" th:value="${session.tel}">
+			電話番号<br> <input type="text" name="tel" th:value="${session.userInfo.tel}">
 		</p>
 		<button type="submit">更新</button>
     </form>

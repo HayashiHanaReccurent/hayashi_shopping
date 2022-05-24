@@ -1,10 +1,14 @@
 <!-- カートに入れた商品一覧 -->
 
-<div class="col-4 box1">
+<div class="col-4">
 	<ul th:each="item:${items}">
-		<li th:text="${item.value.image}"></li>
+		<!-- 商品画像 -->
+		<li><img th:src="|/image/${item.value.image}|" class="itemsImg"></li>
+		<!-- 商品の名前 -->
 		<li th:text="${item.value.name}"></li>
+		<!-- 商品の値段 -->
 		<li th:text="${item.value.price}"></li>
+		<!-- 商品の削除ボタン -->
 		<li><a th:href="|/cart/delete/${item.value.id}|">削除</a></li>
 	</ul>
 </div>
@@ -14,3 +18,6 @@
 	<p class="sum" th:text="|総計:${total}|"></p>
 </div>
 <hr>
+
+
+
