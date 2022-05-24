@@ -35,7 +35,7 @@
 		<div class="row">
 
 			<!-- 商品一覧 -->
-			<div class="itemBox " th:each="item:${items}">
+			<div class="itemBox  " th:each="item:${items}">
 				<img th:src="|/image/${item.image}|" class="itemsImg">
 				<p th:text="${item.name}"></p>
 				<p th:text="${item.price}"></p>

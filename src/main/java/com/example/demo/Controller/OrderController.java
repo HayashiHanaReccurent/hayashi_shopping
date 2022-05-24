@@ -1,6 +1,9 @@
 package com.example.demo.Controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,9 +17,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.Entity.Cart;
 import com.example.demo.Entity.Items;
 import com.example.demo.Entity.OrderDetail;
+import com.example.demo.Entity.OrderDetailHistory;
+import com.example.demo.Entity.OrderHistory;
 import com.example.demo.Entity.Ordered;
 import com.example.demo.Entity.Pay;
 import com.example.demo.Entity.Users;
+import com.example.demo.Repository.ItemRepository;
 import com.example.demo.Repository.OrderDetailRepository;
 import com.example.demo.Repository.OrderedRepository;
 import com.example.demo.Repository.PayRepository;
@@ -39,6 +45,9 @@ public class OrderController {
 
 	@Autowired
 	PayRepository payRepository;
+	
+	@Autowired
+	ItemRepository itemRepository;
 
 	/**
 	 * カートの中身を表示する処理
@@ -173,6 +182,73 @@ public class OrderController {
 		}
 		return mv;
 	}
+	
+	// 注文履歴
+		@RequestMapping("/orderHistory")
+		public ModelAndView history(ModelAndView mv) {
+			
+			// セッションからユーザー情報を取得
+			//Users user = (Users) session.getAttribute("user");
+			Integer id = 18;
+			
+			// Useridが一致するorder情報一覧を取得
+			List<Ordered> orders = orderedRepository.findAllByUserId(id);
+			
+			// orderidのリストを生成
+			Collection<Integer> orderIds = new ArrayList<>();
+			for(Ordered order : orders) {
+				orderIds.add(order.getId());
+			}
+			
+			// orderedIdIn でorderDetail情報から、詳細情報を取得
+			List<OrderDetail> orderdetails = orderDetailRepository.findByOrderedIdIn(orderIds);
+			
+			// itemidのリストを生成
+			Collection<Integer> itemIds = new ArrayList<>();
+			for(OrderDetail orderDetail : orderdetails) {
+				itemIds.add(orderDetail.getItemId());
+			}
+			
+			// codeIn でitem一覧を取得
+			List<Items> items = itemRepository.findByIdIn(itemIds);
+			
+			// 表示用のクラスOrderHistoryを生成して、それに当てはめる
+			
+			List<OrderHistory> orderHistories = new ArrayList<>();
+			
+			for( Ordered order : orders) {
+				OrderHistory orderHistory = new OrderHistory();
+				// Orderをセット
+				orderHistory.setOrder(order);
+				
+				List<OrderDetailHistory> orderDetailHistories = new ArrayList<>();
+				for(OrderDetail orderDetail : orderdetails) {
+					if(order.getId() == orderDetail.getOrderedId()){
+						OrderDetailHistory orderDetailHistory = new OrderDetailHistory();
+						
+						orderDetailHistory.setOrderDetail(orderDetail);
+						
+						for(Items item : items) {
+							if(orderDetail.getItemId() == item.getId()){
+								orderDetailHistory.setItem(item);
+								break;
+							}
+						}
+						orderDetailHistories.add(orderDetailHistory);		
+					}
+				}		
+				orderHistory.setOrderDetails(orderDetailHistories);
+				
+				orderHistories.add(orderHistory);
+			}
+			mv.addObject("orderHistories", orderHistories);
+					
+			mv.setViewName("users/orderHistory");
+			return mv;
+		}
+
+	
+	
 
 	/**
 	 * 未入力チェックメソッド

@@ -1,5 +1,6 @@
 package com.example.demo.Repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,5 +11,6 @@ import com.example.demo.Entity.Items;
 public interface ItemRepository extends JpaRepository<Items, Integer>{
 	List<Items> findALLByOrderByIdAsc();
 	List<Items> findAllByNameContaining(@Param("namePrefix") String str);
-
+	List<Items> findByIdIn(Collection<Integer> itemIds);
+//	List<Items> findByIdIn(Collection<Integer> itemIds);
 }

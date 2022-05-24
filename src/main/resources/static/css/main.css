@@ -43,11 +43,12 @@
 }
 
 .conteiner{
-	flex-wrap: wrap;
+	
 }
 
 .row{
 	display:flex;
+	flex-wrap: wrap;
 }
 
 .itemBox{
