@@ -1,100 +1,258 @@
 @charset "UTF-8";
-/*Margin
-=====================================*/
-
-.mt-15 {margin-top: 15px;}
-.mt-30 {margin-top: 30px;}
-.mt-60 {margin-top: 60px;}
-.mt-45 {margin-top: 45px;}
-.mr-15 {margin-right: 15px;}
-.mr-30 {margin-right: 30px;}
-.mr-45 {margin-right: 45px;}
-.mb-15 {margin-bottom: 15px;}
-.mb-30 {margin-bottom: 30px;}
-.mb-45 {margin-bottom: 45px;}
-.mb-60 {margin-bottom: 60px;}
-.ml-15 {margin-left: 15px;}
-.ml-30 {margin-left: 30px;}
-.ml-45 {margin-left: 45px;}
-
-
-/*Padding
-=====================================*/
-
-.pt-15 {padding-top: 15px;}
-.pt-30 {padding-top: 30px;}
-.pt-45 {padding-top: 45px;}
-.pr-15 {padding-right: 15px;}
-.pr-30 {padding-right: 30px;}
-.pr-45 {padding-right: 45px;}
-.pb-7 {padding-bottom: 7.5px;}
-.pb-15 {padding-bottom: 15px;}
-.pb-30 {padding-bottom: 30px;}
-.pb-45 {padding-bottom: 45px;}
-.pl-15 {padding-left: 15px;}
-.pl-30 {padding-left: 30px;}
-.pl-45 {padding-left: 45px;}
-
-body{
-	background-image: url(/img/backgroundColor_01.jpg);
+/* CSS Document */
+html, body, container-fluid {
+	height: 100vh; /* HTMLの高さを画面の高さに */
+	margin: 0; /* 余白（margin）を0に */
+	padding: 0; /* 余白（padding）を0に */
 }
-#gnav{
-    display: flex;
-    list-style-type: none;
-    justify-content: center;
-    color:#FFFFFF;
-    margin:auto;
-    width: 100%;
-    background-color: rgba( 0, 0, 0, 0.7) ;
-     z-index: 999;
+
+*{
+    box-sizing: border-box;
+    /*はみ出し確認用の線
+    outline: 2px red solid;
+    */
 }
+p{
+	margin:0;
+}
+body {
+	background-image: url(/image/backgroundColor_02.jpg);
+	overflow-x:hidden; 
+	font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
+
+ul{
+    padding-left: 0px;
+}
+/*右側の謎の余白を消す*/
+.wrap {
+	overflow: hidden;
+}
+/*ヘッダーメニューの調整*/
+#gnav {
+	display: flex;
+	list-style-type: none;
+	justify-content: center;
+	color: #FFFFFF;
+	margin: auto;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 999;
+}
+
 #gnav ul {
-    overflow: hidden;
+	overflow: hidden;
 }
- 
-#gnav li {
-    width: 100%;
-    float: left;
-    list-style-type: none;
-}
- 
-#gnav a {
-    display: block;
-    padding: 20px 0;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    transition: 0.5s;
-}
-#gnav a:hover {
-    background-color: rgba(203, 60, 70, 0.84);
-}
- 
 
+#gnav li {
+	width: 100%;
+	float: left;
+	list-style-type: none;
+}
+
+#gnav a {
+	display: block;
+	padding: 20px 0;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none; 
+	color : #fff;
+	transition: 0.5s;
+	color: #fff
+}
+
+#gnav a:hover {
+		background-color: rgba(255, 197, 71, 0.993);
+}
+
+/*ログインしているユーザー名を表示する部分の調整*/
+.sessionUserName{
+text-align: right;
+}
+/*検索窓の調整*/
+.search{
+ text-align: center;
+}
+/*コンテナの左右の余白を消す*/
+.container-fluid{
+    padding-left:0;
+    padding-right: 0; 
+}
+/*コンテナ内の見出しは中央揃えにする*/
+.container-fluid h1{
+    text-align: center;
+}
+/*商品を横並びにする*/
+.row {
+	display: flex;
+	 justify-content: space-around;
+}
+/*それぞれの画像と文章は縦並びにする*/
+.itemBox {
+	display: flex;
+	flex-direction: column;
+}
+/*リンクの下線は消す*/
+.itemBox a {
+    text-decoration: none;
+      color: black;
+  }
 /*商品画像の調整*/
 .itemsImg{
-	
-   
+    background-color: #FFFFFF;
 }
-
-.conteiner{
-	
+/*商品名の調整*/
+.itemName{
+    font-size: 25px;
+    font-weight: bold;
 }
-
-.row{
-	display:flex;
-	flex-wrap: wrap;
+/*商品の価格の調整*/
+.itemPrice{
+	font-size: 20px;
+    color: red;
 }
-
-.itemBox{
-	display: flex;
-    flex-direction: column;
+/*カートに追加するボタンの調整*/
+.btnAddCart a{
+    color: #FFFFFF;
 }
-
 /*ulに最初からついているmarginとpaddingを消す*/
-.orderHistory ul{
+.orderHistory ul {
 	padding: 0;
 	margin: 0;
 }
+/*フッターの調整*/
+footer{
+background-color: black;
+text-align: center;
+color: #FFFFFF;
+}
+footer a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
 
+
+
+/*Margin
+=====================================*/
+.mt-15 {
+	margin-top: 15px;
+}
+
+.mt-30 {
+	margin-top: 30px;
+}
+
+.mt-60 {
+	margin-top: 60px;
+}
+
+.mt-45 {
+	margin-top: 45px;
+}
+
+.mr-7 {
+	margin-right: 7.5px;
+}
+
+.mr-15 {
+	margin-right: 15px;
+}
+
+.mr-30 {
+	margin-right: 30px;
+}
+
+.mr-45 {
+	margin-right: 45px;
+}
+
+.mb-7 {
+	margin-bottom: 7.5px;
+}
+
+.mb-15 {
+	margin-bottom: 15px;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+
+.mb-45 {
+	margin-bottom: 45px;
+}
+
+.mb-60 {
+	margin-bottom: 60px;
+}
+
+.ml-7 {
+	margin-left: 7.5px;
+}
+
+.ml-15 {
+	margin-left: 15px;
+}
+
+.ml-30 {
+	margin-left: 30px;
+}
+
+.ml-45 {
+	margin-left: 45px;
+}
+
+/*Padding
+=====================================*/
+.pt-15 {
+	padding-top: 15px;
+}
+
+.pt-30 {
+	padding-top: 30px;
+}
+
+.pt-45 {
+	padding-top: 45px;
+}
+
+.pr-15 {
+	padding-right: 15px;
+}
+
+.pr-30 {
+	padding-right: 30px;
+}
+
+.pr-45 {
+	padding-right: 45px;
+}
+
+.pb-7 {
+	padding-bottom: 7.5px;
+}
+
+.pb-15 {
+	padding-bottom: 15px;
+}
+
+.pb-30 {
+	padding-bottom: 30px;
+}
+
+.pb-45 {
+	padding-bottom: 45px;
+}
+
+.pl-15 {
+	padding-left: 15px;
+}
+
+.pl-30 {
+	padding-left: 30px;
+}
+
+.pl-45 {
+	padding-left: 45px;
+}

@@ -1,11 +1,12 @@
 <!-- ヘッダーメニュー -->
-<div>
-    <p th:text="'(' + ${session.userInfo.userName} + ')がログイン中'" ></p>
+<div class="wrap">
+
     <ul id="gnav">
         <li><a href="/itemView">トップページ</a></li>
         <li><a href="/cart">カートの中を見る</a></li>
         <li><a href="/mypage">マイページ</a></li>
         <li><a href="/logout">ログアウト</a></li>
     </ul>
+    
+        <p th:text="'(' + ${session.userInfo.userName} + ')がログイン中'" class="sessionUserName"></p>
 </div>
-<hr>
