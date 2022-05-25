@@ -79,7 +79,13 @@ ul{
 .sessionUserName{
 text-align: right;
 }
-
+/*トップ画像の調整*/
+.topImg{
+background-image: url(/image/back_test.gif);
+background-repeat: no-repeat;	
+text-align: center;
+height:500px;
+}
 
 /*フッターの調整*/
 footer{
@@ -165,6 +171,10 @@ footer a{
 
 .ml-45 {
 	margin-left: 45px;
+}
+
+.ml-60 {
+	margin-left: 60px;
 }
 
 /*Padding
