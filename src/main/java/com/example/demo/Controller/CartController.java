@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.Entity.Cart;
 import com.example.demo.Entity.Items;
+import com.example.demo.Entity.Users;
 import com.example.demo.Repository.ItemRepository;
 import com.example.demo.Repository.UsersRepository;
 
@@ -101,6 +102,11 @@ public class CartController {
 		// ページに表示したい情報を設定(商品と合計)
 		mv.addObject("items", cartSession.getItems());
 		mv.addObject("total", cartSession.getTotal());
+		
+		// セッション情報を再取得する
+		Users userInfo = getUsersFromSession();
+		session.setAttribute("userInfo", userInfo);
+		mv.addObject("userInfo", session.getAttribute("userInfo"));
 
 		// カートの中身ページ遷移
 		mv.setViewName("shopping/cart");
@@ -136,5 +142,9 @@ public class CartController {
 
 	}
 
-	
+	// ユーザー登録情報の取得メソッド
+	public Users getUsersFromSession() {
+		Users usersSession = (Users) session.getAttribute("userInfo");
+		return usersSession;
+	}
 }

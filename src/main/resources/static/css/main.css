@@ -1,4 +1,7 @@
 @charset "UTF-8";
+
+/*どのページにも必要な機能のCSS*/
+
 /* CSS Document */
 html, body, container-fluid {
 	height: 100vh; /* HTMLの高さを画面の高さに */
@@ -16,7 +19,10 @@ p{
 	margin:0;
 }
 body {
+    background-color: hsl(22, 41%, 89%);
+	/*
 	background-image: url(/image/backgroundColor_02.jpg);
+	*/
 	overflow-x:hidden; 
 	font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
 }
@@ -27,6 +33,11 @@ ul{
 /*右側の謎の余白を消す*/
 .wrap {
 	overflow: hidden;
+}
+/*コンテナの左右の余白を消す*/
+.container-fluid{
+    padding-left:0;
+    padding-right: 0; 
 }
 /*ヘッダーメニューの調整*/
 #gnav {
@@ -69,57 +80,8 @@ ul{
 .sessionUserName{
 text-align: right;
 }
-/*検索窓の調整*/
-.search{
- text-align: center;
-}
-/*コンテナの左右の余白を消す*/
-.container-fluid{
-    padding-left:0;
-    padding-right: 0; 
-}
-/*コンテナ内の見出しは中央揃えにする*/
-.container-fluid h1{
-    text-align: center;
-}
-/*商品を横並びにする*/
-.row {
-	display: flex;
-	 justify-content: space-around;
-}
-/*それぞれの画像と文章は縦並びにする*/
-.itemBox {
-	display: flex;
-	flex-direction: column;
-}
-/*リンクの下線は消す*/
-.itemBox a {
-    text-decoration: none;
-      color: black;
-  }
-/*商品画像の調整*/
-.itemsImg{
-    background-color: #FFFFFF;
-}
-/*商品名の調整*/
-.itemName{
-    font-size: 25px;
-    font-weight: bold;
-}
-/*商品の価格の調整*/
-.itemPrice{
-	font-size: 20px;
-    color: red;
-}
-/*カートに追加するボタンの調整*/
-.btnAddCart a{
-    color: #FFFFFF;
-}
-/*ulに最初からついているmarginとpaddingを消す*/
-.orderHistory ul {
-	padding: 0;
-	margin: 0;
-}
+
+
 /*フッターの調整*/
 footer{
 background-color: black;
@@ -130,7 +92,6 @@ footer a{
     text-decoration: none;
     color: #FFFFFF;
 }
-
 
 
 /*Margin

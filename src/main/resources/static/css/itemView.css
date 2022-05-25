@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+/*商品一覧ページのCSS*/
+
+/*検索窓の調整*/
+.search{
+ text-align: center;
+}
+
+/*コンテナ内の見出しは中央揃えにする*/
+.container-fluid h1{
+    text-align: center;
+}
+/*商品を横並びにする*/
+.row {
+	display: flex;
+	 justify-content: space-around;
+}
+/*それぞれの画像と文章は縦並びにする*/
+.itemBox {
+	display: flex;
+	flex-direction: column;
+}
+/*リンクの下線は消す*/
+.itemBox a {
+    text-decoration: none;
+      color: black;
+  }
+/*商品画像の調整*/
+.itemsImg{
+    background-color: #FFFFFF;
+}
+/*商品名の調整*/
+.itemName{
+    font-size: 25px;
+    font-weight: bold;
+}
+/*商品の価格の調整*/
+.itemPrice{
+	font-size: 20px;
+    color: red;
+}
+/*カートに追加するボタンの調整*/
+.btnAddCart a{
+    color: #FFFFFF;
+}
+/*ulに最初からついているmarginとpaddingを消す*/
+.orderHistory ul {
+	padding: 0;
+	margin: 0;
+}

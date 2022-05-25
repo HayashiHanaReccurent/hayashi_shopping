@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/*商品を横並びにする*/
+.row {
+
+}
+/*それぞれの画像と文章は縦並びにする*/
+.itemBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.itemBoxChild {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+}
+
+.itemsImg {
+	width: 500px;
+}
+/*リンクの下線は消す*/
+.itemBox a {
+	text-decoration: none;
+	color: black;
+}
+/*商品画像の調整*/
+.itemsImg {
+	background-color: #FFFFFF;
+}
+/*商品名の調整*/
+.itemName{
+    font-size: 50px;
+    font-weight: bold;
+}
+/*商品の価格の調整*/
+.itemPrice{
+	font-size: 35px;
+    color: red;
+}
+/*カートに追加するボタンの調整*/
+.btnAddCart a{
+    color: #FFFFFF;
+}

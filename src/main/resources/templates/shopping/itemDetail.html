@@ -11,7 +11,11 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+<!-- 共通CSS(main.css) -->	
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<!-- 専用CSS -->
+<link rel="stylesheet" th:href="@{/css/itemDetail.css}">
+    
 <title>商品詳細</title>
 </head>
 <body>
@@ -20,27 +24,33 @@
 		<!-- メニュー  memu.htmlの内容と置き換える-->
 		<span th:replace="/menu"></span>
 	</header>
-	<div class="conteiner">
+	<div class="container-fluid pr-45 pl-45">
 		<h1>商品詳細</h1>
 		<hr>
 		<!-- 商品詳細を表示(キャプション付き) -->
-		<div class="row">
+		<div class="row ">
 			<!-- 商品一覧 -->
-			<div class="itemBox ml-30" th:each="item:${items}">
-				<img th:src="|/image/${item.image}|" class="itemsImg">
-				<p th:text="${item.name}"></p>
-				<p th:text="|${item.price}| + 円"></p>
-				<p th:text="${item.caption}"></p>
-              
+			<div class="itemBox 　col-12" th:each="item:${items}">
+				<img th:src="|/image/${item.image}|" class="itemsImg mb-7">
+				
+				<div class="itemBoxChild">
+				<p th:text="${item.name}" class="itemName "></p>
+				<p th:text="|${item.price}| + 円" class="itemPrice"></p>
+				<p th:text="${item.caption}" class="mb-7 mt-7"></p>
 				<p>
-					<a th:href="|cart/add/${item.id}|">カートに追加</a>
-				</p>
+			<a th:href="|/cart/add/${item.id}|">
+					<button type="button" class="btnAddCart btn btn-dark">
+					カートに追加	
+					</button>
+					</a>
+					</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- ログアウトボタン logout.htmlの内容と置き換える -->
+	<footer class="mt-45 pt-15 pb-15">
 	<span th:replace="/logout"></span>
+	</footer>
 
 	<!-- Optional JavaScript; choose one of the two! -->
 	<!-- Option 1: Bootstrap Bundle with Popper -->
