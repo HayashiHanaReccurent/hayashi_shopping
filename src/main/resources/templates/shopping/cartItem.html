@@ -1,23 +1,34 @@
 <!-- カートに入れた商品一覧 -->
 
-<div class="col-4">
-	<ul th:each="item:${items}">
+<div class="col-12">
+	<div th:each="item:${items}" class="itemBox mb-30">
 		<!-- 商品画像 -->
-		<li><img th:src="|/image/${item.value.image}|" class="itemsImg"></li>
+		<p><img th:src="|/image/${item.value.image}|" class="itemsImg"></p>
+		
+		<div class="itemBoxChild">
 		<!-- 商品の名前 -->
-		<li th:text="${item.value.name}"></li>
+		<p th:text="${item.value.name}" class="itemName"></p>
 		<!-- 商品の値段 -->
-		<li th:text="|${item.value.price}| + 円"></li>
+		<p th:text="|${item.value.price}| + 円" class="itemPrice"></p>
 		<!-- 商品の個数 -->
-		<li th:text="|${item.value.quantity}| + 個"></li>
+		<p th:text="|${item.value.quantity}| + 個" class="itemQuantity"></p>
 		<!-- 商品の削除ボタン -->
-		<li><a th:href="|/cart/delete/${item.value.id}|">削除</a></li>
-	</ul>
-</div>
+		<p>
+		<a th:href="|/cart/delete/${item.value.id}|">
+		<button type="button" class="btnDeleteCart btn btn-dark">
+		削除
+		</button>
+		</a>
+		</p>
+		
+		</div>
+	</div>
 
+</div>
 <!-- 合計金額 -->
-<div class="col-4">
-	<p class="sum" th:text="|総計:${total}|"></p>
+<hr>
+<div class="">
+	<p class="sum" th:text="|総計:${total}円|"></p>
 </div>
 <hr>
 
