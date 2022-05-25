@@ -72,7 +72,7 @@ ul{
 }
 
 #gnav a:hover {
-	background-color: rgba(233, 84, 39, 0.993);
+	background-color: rgba(223, 52, 39, 0.993);
 }
 
 /*ログインしているユーザー名を表示する部分の調整*/
@@ -92,6 +92,10 @@ footer a{
     color: #FFFFFF;
 }
 
+/*文字を太字にする*/
+.fontBold{
+	font-weight: bold;
+}
 
 /*Margin
 =====================================*/

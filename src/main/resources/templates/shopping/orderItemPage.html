@@ -15,6 +15,7 @@
 <link rel="stylesheet" th:href="@{/css/main.css}">
 <!-- 専用CSS -->
 <link rel="stylesheet" th:href="@{/css/cartItem.css}">
+<link rel="stylesheet" th:href="@{/css/address.css}">
 <title>配送先・支払方法の入力</title>
 </head>
 
@@ -23,33 +24,33 @@
 		<!-- メニュー  memu.htmlの内容と置き換える-->
 		<span th:replace="/menu"></span>
 	</header>
-	<h1>ご注文商品の確認</h1>
-	<hr>
-	<!-- カートの中身の商品一覧 cartItem.htmlの内容と置き換える -->
-	<span th:replace="/shopping/cartItem"></span>
-	<!-- 商品一覧 -->
-	<div class="col-4 box1"></div>
+	<div class="container-fluid pr-45 pl-45">
+		<h1>ご注文商品の確認</h1>
+		<hr>
+		<!-- カートの中身の商品一覧 cartItem.htmlの内容と置き換える -->
+		<span th:replace="/shopping/cartItem"></span>
 
-	<!-- 配送先の情報を表示(デフォルトは新規登録時の住所を表示)-->
-	<!--配送先 shippingAddress.htmlの内容と置き換える-->
-	<h2>配送先の確認</h2>
-	<span th:replace="/shopping/shippingAddress"></span>
-
-
-	<p>
-		配送先は<a href="/mypage">マイページ</a>より変更できます
-	</p>
-	<!-- 支払い情報の入力・確認 -->
-	<h2>支払い方法の確認</h2>
-
-	<form action="/order/confirm" method="post">
-
-		<p>
-			クレジットカード番号<br>
-			 <input type="text" name="creditNo">
-			 
+		<!-- 配送先の情報を表示(デフォルトは新規登録時の住所を表示)-->
+		<!--配送先 shippingAddress.htmlの内容と置き換える-->
+		<h2>配送先の確認</h2>
+		<span th:replace="/shopping/shippingAddress"></span>
+		<p class="changeAddress">
+			配送先は<a href="/mypage">マイページ</a>より変更できます
 		</p>
-		<!--  
+		<hr>
+		<!-- 支払い情報の入力・確認 -->
+		<h2>支払い方法の確認</h2>
+		<div class="shippingAddress">
+			<form action="/order/confirm" method="post">
+
+				<p class="mb-30">
+				 <span class="fontBold">
+					クレジットカード番号<br>
+					</span>
+					 <input type="text" name="creditNo" class="inputTextbox">
+
+				</p>
+				<!--  
 		<p>
 			クレジットカード番号<br>
 			 <input type="text" name="creditNo" th:value="${payUserList.creditNo}" th:if="${payUserList.size == 0}">
@@ -60,18 +61,27 @@
 			 
 		</p>
 		-->
-		<p>
-			セキュリティコード<br> <input type="password" name="creditSecurity">
-		</p>
+				<p class="mb-30">
+				 <span class="fontBold">
+					セキュリティコード<br>
+					</span>
+					 <input type="password" name="creditSecurity" class="inputTextbox">
+				</p>
 
-		<!-- エラーメッセージを表示 -->
-		<span th:text="${message}" style="color: red;"></span>
+				<!-- エラーメッセージを表示 -->
+				<span th:text="${message}" style="color: red;"></span>
 
-		<button type="submit">注文内容を確認する</button>
-	</form>
+				<button type="submit" class="btn btn-dark btnOrderCheck ">
+				注文内容を確認する
+				</button>
+			</form>
+		</div>
+	</div>
 
 	<!-- ログアウトボタン logout.htmlの内容と置き換える -->
-	<span th:replace="/logout"></span>
+	<footer class="mt-45 pt-15 pb-15">
+		<span th:replace="/logout"></span>
+	</footer>
 	<!-- Optional JavaScript; choose one of the two! -->
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script

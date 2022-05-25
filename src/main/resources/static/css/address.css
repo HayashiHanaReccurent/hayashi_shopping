@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/*配送先を整えるCSS*/
+.shippingAddress {
+	margin: 0 35%;
+	font-size: 20px;
+	text-align: center;
+}
+.shippingAddress p{
+	text-align: left;
+}
+/*配送先変更リンクの調整*/
+.changeAddress {
+	text-align: center;
+}
+/*テキストボックスの横幅を調整*/
+.inputTextbox{
+	width:400px;
+}
+/*注文内容確認ボタンの調整*/
+.btnOrderCheck{
+	margin: 3% 20%;
+}

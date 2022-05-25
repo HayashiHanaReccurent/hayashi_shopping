@@ -1,14 +1,29 @@
  <!-- 配送先の情報を表示(デフォルトは新規登録時の住所を表示)-->
+<div class="shippingAddress">
 
- <p>
-     名前<br> <span name="name" th:text="${session.userInfo.name}"></span>
+ <p	class="mb-15">
+	<span class="fontBold">
+     名前<br>
+     </span> 
+      <span name="name" th:text="${session.userInfo.name}"></span>
  </p>
- <p>
-     郵便番号<br> <span name="addressnum" th:text="${session.userInfo.addressnum}"></span>
+ <p class="mb-15">
+ <span class="fontBold">
+     郵便番号<br> 
+     </span>
+     <span name="addressnum" th:text="${session.userInfo.addressnum}"></span>
  </p>
- <p>
-     住所<br> <span name="address" th:text="${session.userInfo.address}"></span>
+ <p class="mb-15">
+ <span class="fontBold">
+     住所<br> 
+     </span>
+     <span name="address" th:text="${session.userInfo.address}"></span>
  </p>
- <p>
-     電話番号<br> <span name="tel" th:text="${session.userInfo.tel}"></span>
+ <p class="mb-15">
+ <span class="fontBold">
+     電話番号<br> 
+     </span>
+     <span name="tel" th:text="${session.userInfo.tel}"></span>
  </p>
+ 
+ </div>
