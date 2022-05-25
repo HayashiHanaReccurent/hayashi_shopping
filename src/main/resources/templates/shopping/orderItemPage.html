@@ -41,12 +41,23 @@
 	<form action="/order/confirm" method="post">
 
 		<p>
-			クレジットカード番号<br> <input type="text" name="creditNo"
-				th:value="${session.creditNo}">
+			クレジットカード番号<br>
+			 <input type="text" name="creditNo">
+			 
 		</p>
+		<!--  
 		<p>
-			セキュリティコード<br> <input type="password" name="creditSecurity"
-				th:value="${session.creditSecurity}">
+			クレジットカード番号<br>
+			 <input type="text" name="creditNo" th:value="${payUserList.creditNo}" th:if="${payUserList.size == 0}">
+			 <input type="hidden" name="creditNo" th:value="${payUserList.get(0).creditNo}" th:if="${payUserList.size > 0}">
+			 <span th:if="${payUserList.size > 0}" ></span><br>
+	
+		<span th:text="${messageCredit}"></span>
+			 
+		</p>
+		-->
+		<p>
+			セキュリティコード<br> <input type="password" name="creditSecurity">
 		</p>
 
 		<!-- エラーメッセージを表示 -->

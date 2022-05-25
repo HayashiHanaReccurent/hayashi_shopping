@@ -41,6 +41,12 @@ public class Pay {
 		this.creditNo = creditNo;
 		this.creditSecurity = creditSecurity;
 	}
+	
+	//クレカ番号のみコンストラクタ
+	public Pay(String creditNo) {
+		super();
+		this.creditNo = creditNo;
+	}
 	// getter
 	public Integer getId() {
 		return id;

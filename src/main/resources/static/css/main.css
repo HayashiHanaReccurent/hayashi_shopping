@@ -35,7 +35,42 @@
 .pl-30 {padding-left: 30px;}
 .pl-45 {padding-left: 45px;}
 
-
+body{
+	background-image: url(/img/backgroundColor_01.jpg);
+}
+#gnav{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    color:#FFFFFF;
+    margin:auto;
+    width: 100%;
+    background-color: rgba( 0, 0, 0, 0.7) ;
+     z-index: 999;
+}
+#gnav ul {
+    overflow: hidden;
+}
+ 
+#gnav li {
+    width: 100%;
+    float: left;
+    list-style-type: none;
+}
+ 
+#gnav a {
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.5s;
+}
+#gnav a:hover {
+    background-color: rgba(203, 60, 70, 0.84);
+}
+ 
 
 /*商品画像の調整*/
 .itemsImg{

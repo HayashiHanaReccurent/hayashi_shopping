@@ -1,7 +1,7 @@
 <!-- ヘッダーメニュー -->
-<div class="gnav">
+<div>
     <p th:text="'(' + ${session.userInfo.userName} + ')がログイン中'" ></p>
-    <ul>
+    <ul id="gnav">
         <li><a href="/itemView">トップページ</a></li>
         <li><a href="/cart">カートの中を見る</a></li>
         <li><a href="/mypage">マイページ</a></li>
