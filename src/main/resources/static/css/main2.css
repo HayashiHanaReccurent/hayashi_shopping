@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*どのページにも必要な機能のCSS*/
+/*ログインと新規登録画面でフッターを下固定にする*/
 
 /* CSS Document */
 html, body, container-fluid {
@@ -104,7 +104,10 @@ footer {
 	background-color: black;
 	text-align: center;
 	color: #FFFFFF;
-	
+	 position: absolute;/*←絶対位置*/
+  bottom: 0;
+  left: 0;
+    width:100%
 }
 
 footer a {
@@ -115,6 +118,9 @@ footer a {
 /*文字を太字にする*/
 .fontBold {
 	font-weight: bold;
+}
+.h1Size{
+	font-size:35px;
 }
 
 /*Margin
