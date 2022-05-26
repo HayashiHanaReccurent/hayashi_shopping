@@ -56,7 +56,9 @@
 	display: flex;
 	margin-left: 40%;
 }
-.shoppingButton p{
-	
+.shoppingButtonOrdered{
+	display: flex;
+	margin-left: 36%;
 }
+
 

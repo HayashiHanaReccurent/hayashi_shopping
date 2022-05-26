@@ -87,6 +87,11 @@ text-align: center;
 height:500px;
 }
 
+/*センター寄せにしたいものに適用させる*/
+.centerText{
+text-align: center;	
+}
+
 /*フッターの調整*/
 footer{
 background-color: black;
