@@ -11,7 +11,10 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
+<!-- 共通CSS(main.css) -->
 <link rel="stylesheet" th:href="@{/css/main.css}">
+<!-- 専用CSS -->
+<link rel="stylesheet" th:href="@{/css/orderHistory.css}">
 <title>注文履歴</title>
 </head>
 <body>
@@ -20,41 +23,42 @@
 		<span th:replace="/menu"></span>
 	</header>
 
-	<!-- セッションからユーザーネームを拾って見出しを表示 -->
-	<h1 th:text="'(' + ${session.userInfo.userName} + ')さんの注文履歴'"></h1>
+	<div class="container-fluid pr-45 pl-45">
+		<!-- セッションからユーザーネームを拾って見出しを表示 -->
+		<h1 th:text="'(' + ${session.userInfo.userName} + ')さんの注文履歴'"
+			class="mb-15 mt-15"></h1>
 
-	<!-- 注文情報を表示するための見出し -->
-	<table border="1" class="ml-30 orderHistory">
-		<tr>
-			<th class="pl-15 pr-15  pt-15">注文日</th>
-			<th class="pl-15 pr-15 pt-15">商品</th>
-			<th class="pl-15 pr-15  pt-15">小計</th>
-		</tr>
+		<!-- 注文情報を表示するための見出し -->
+		<table border="1" class="ml-30 orderHistory">
+			<tr>
+				<th class="thLayout">注文日</th>
+				<th class="thLayout">商品</th>
+				<th class="thLayout">小計</th>
+			</tr>
 
-		<tr th:each="orderHistory : ${orderHistories}">
-			<!-- オーダー情報の表示  -->
-			<td
-				th:text="${#dates.format(orderHistory.order.orderedDate, 'yyyy-MM-dd')}"
-				class="pl-15 pr-15 pb-15 pt-15"></td>
+			<tr th:each="orderHistory : ${orderHistories}">
+				<!-- オーダー情報の表示  -->
+				<td
+					th:text="${#dates.format(orderHistory.order.orderedDate, 'yyyy-MM-dd')}"
+					class="tdLayout"></td>
 
-			<td class="pl-15 pr-15 pb-15 pt-15">
-				<ul th:each="orderDetailHistory : ${orderHistory.orderDetails}">
-					<li th:if="orderDetailHistory.item != null"
-						th:text="${orderDetailHistory.item.name}"></li>
-				</ul>
-			</td>
-			<td th:text="${orderHistory.order.totalPrice}"
-				class="pl-15 pr-15 pb-15 pt-15"></td>
-		</tr>
-	</table>
+				<td class="tdLayout">
+					<ul th:each="orderDetailHistory : ${orderHistory.orderDetails}">
+						<li th:if="orderDetailHistory.item != null"
+							th:text="${orderDetailHistory.item.name}"></li>
+					</ul>
+				</td>
+				<td th:text="${orderHistory.order.totalPrice}" class="tdLayout"></td>
+			</tr>
+		</table>
 
-
-
-
+	</div>
 
 
 	<!-- ログアウトボタン logout.htmlの内容と置き換える -->
-	<span th:replace="/logout"></span>
+	<footer class="mt-45 pt-15 pb-15">
+		<span th:replace="/logout"></span>
+	</footer>
 	<!-- Optional JavaScript; choose one of the two! -->
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script

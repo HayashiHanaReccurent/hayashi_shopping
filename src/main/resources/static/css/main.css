@@ -9,34 +9,36 @@ html, body, container-fluid {
 	padding: 0; /* 余白（padding）を0に */
 }
 
-*{
-    box-sizing: border-box;
-    /*はみ出し確認用の線
+* {
+	box-sizing: border-box;
+	/*はみ出し確認用の線
     outline: 2px red solid;
     */
 }
-p{
-	margin:0;
+
+p {
+	margin: 0;
 }
+
 body {
 	/*
 	background-image: url(/image/backgroundColor_02.jpg);
 	*/
-	overflow-x:hidden; 
+	overflow-x: hidden;
 	font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
 }
 
-ul{
-    padding-left: 0px;
+ul {
+	padding-left: 0px;
 }
 /*右側の謎の余白を消す*/
 .wrap {
 	overflow: hidden;
 }
 /*コンテナの左右の余白を消す*/
-.container-fluid{
-    padding-left:0;
-    padding-right: 0; 
+.container-fluid {
+	padding-left: 0;
+	padding-right: 0;
 }
 /*ヘッダーメニューの調整*/
 #gnav {
@@ -65,8 +67,8 @@ ul{
 	padding: 20px 0;
 	text-align: center;
 	font-weight: bold;
-	text-decoration: none; 
-	color : #fff;
+	text-decoration: none;
+	color: #fff;
 	transition: 0.5s;
 	color: #fff
 }
@@ -76,35 +78,40 @@ ul{
 }
 
 /*ログインしているユーザー名を表示する部分の調整*/
-.sessionUserName{
-text-align: right;
+.sessionUserName {
+	text-align: right;
 }
 /*トップ画像の調整*/
-.topImg{
-background-image: url(/image/back_test.gif);
-background-repeat: no-repeat;	
-text-align: center;
-height:500px;
+.topImg {
+	background-image: url(/image/back_test.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	height: 500px;
 }
 
 /*センター寄せにしたいものに適用させる*/
-.centerText{
-text-align: center;	
+.centerText {
+	text-align: center;
+}
+
+.centerText ul {
+	list-style: none;
 }
 
 /*フッターの調整*/
-footer{
-background-color: black;
-text-align: center;
-color: #FFFFFF;
+footer {
+	background-color: black;
+	text-align: center;
+	color: #FFFFFF;
 }
-footer a{
-    text-decoration: none;
-    color: #FFFFFF;
+
+footer a {
+	text-decoration: none;
+	color: #FFFFFF;
 }
 
 /*文字を太字にする*/
-.fontBold{
+.fontBold {
 	font-weight: bold;
 }
 
