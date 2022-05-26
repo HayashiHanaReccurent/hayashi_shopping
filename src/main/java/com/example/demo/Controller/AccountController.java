@@ -71,6 +71,19 @@ public class AccountController {
 			mv.setViewName("loginLogout/signup");
 			return mv;
 		}
+		
+		// 重複チェック(メールアドレスが重複していたら登録しない)
+		// ①DBから同一のNameを持つデータを取得
+		// ②データが取得できたら登録しない
+//					List<Users> userList  = usersRepository.findAllByEmail(email);
+//					mv.addObject("users", userList );
+//					
+//					if(userList .size() != 0) {
+//						mv.addObject("messageErrorEmail", "登録済のメールアドレスです");
+//						mv.setViewName("loginLogout/signup");
+//					}
+
+		
 		// チェックを通過したらデータベースに反映させる
 		Users newUserAccount = new Users(userName, address, email, tel, name, password, addressnum);
 		usersRepository.saveAndFlush(newUserAccount);
@@ -88,7 +101,7 @@ public class AccountController {
 		// 未入力チェック
 		if (isNull(userName) || isNull(password)) {
 			// 未入力ならエラーメッセージを表示
-			mv.addObject("message", "未入力の項目があります。");
+			mv.addObject("message", "未入力の項目があります");
 			mv.setViewName("loginLogout/index");
 			return mv;
 		}
