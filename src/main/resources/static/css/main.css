@@ -105,6 +105,10 @@ footer a{
 
 /*Margin
 =====================================*/
+.mt-7 {
+	margin-top: 7.5px;
+}
+
 .mt-15 {
 	margin-top: 15px;
 }
