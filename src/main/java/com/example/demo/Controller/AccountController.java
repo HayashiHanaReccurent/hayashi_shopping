@@ -64,14 +64,14 @@ public class AccountController {
 			@RequestParam("address") String address, @RequestParam("tel") String tel,
 			@RequestParam("addressnum") String addressnum, ModelAndView mv) {
 		// 未入力チェック
-		if (isNull(userName) || userName.length() < 8|| isNull(password) ||  password.length() < 8||isNull(email) || isNull(email) || isNull(name) || isNull(address)
-				|| isNull(tel)) {
+		if (isNull(userName) || userName.length() < 8 || isNull(password) || password.length() < 8 || isNull(email)
+				|| isNull(email) || isNull(name) || isNull(address) || isNull(tel)) {
 			// 未入力ならエラーメッセージを表示、登録画面を再度表示
 			mv.addObject("message", "未入力の項目、または文字数が足りない項目があります");
 			mv.setViewName("loginLogout/signup");
 			return mv;
 		}
-		
+
 		// 重複チェック(メールアドレスが重複していたら登録しない)
 		// ①DBから同一のNameを持つデータを取得
 		// ②データが取得できたら登録しない
@@ -83,7 +83,6 @@ public class AccountController {
 //						mv.setViewName("loginLogout/signup");
 //					}
 
-		
 		// チェックを通過したらデータベースに反映させる
 		Users newUserAccount = new Users(userName, address, email, tel, name, password, addressnum);
 		usersRepository.saveAndFlush(newUserAccount);
@@ -166,8 +165,8 @@ public class AccountController {
 			@RequestParam("tel") String tel, ModelAndView mv) {
 
 		// 未入力チェック
-		if (isNull(userName) ||  userName.length() < 8|| isNull(password) || password.length() < 8|| isNull(email) || isNull(name) || isNull(addressnum)
-				|| isNull(address) || isNull(tel)) {
+		if (isNull(userName) || userName.length() < 8 || isNull(password) || password.length() < 8 || isNull(email)
+				|| isNull(name) || isNull(addressnum) || isNull(address) || isNull(tel)) {
 			// 未入力ならエラーメッセージを表示
 			mv.addObject("message", "未入力の項目、または文字数が足りない項目があります");
 
@@ -175,9 +174,9 @@ public class AccountController {
 			mv.setViewName("users/editInfo");
 			return mv;
 		}
-		// 未入力チェックを通過した場合、 セッションからid取得
-		Users userId = (Users) session.getAttribute("id");
-		Integer id = userId.getId();
+
+		// ユーザーの登録情報から主キーを取得
+		Integer id = (Integer) session.getAttribute("id");
 
 		// 入力された値に更新
 		Users editUserAccount = new Users(id, userName, address, email, tel, name, password, addressnum);

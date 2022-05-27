@@ -32,7 +32,10 @@ public class ItemController {
 	public ModelAndView itemView(ModelAndView mv) {
 		// 商品情報をすべて取得
 		List<Items> itemList = itemRepository.findAll();
+		
 		mv.addObject("items", itemList);
+		//昇順に並び替える
+		mv.addObject("items", itemRepository.findALLByOrderByIdAsc());
 
 		// 商品画像を表示
 		String imgurl = "/image.png";
@@ -54,7 +57,12 @@ public class ItemController {
 	public ModelAndView search(ModelAndView mv, @RequestParam("searchWord") String searchWord) {
 		List<Items> itemList = itemRepository.findAllByNameContaining(searchWord);
 		mv.addObject("items", itemList);
-		mv.addObject("message","商品の検索が完了しました");
+		if(itemList.size() > 0) {
+			mv.addObject("message","商品の検索が完了しました");
+			mv.setViewName("shopping/itemView");
+			return mv;
+		}
+		mv.addObject("message","該当する商品はありませんでした");
 		mv.setViewName("shopping/itemView");
 		return mv;
 	}

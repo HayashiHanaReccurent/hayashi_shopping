@@ -35,11 +35,11 @@
 				
 				<div class="itemBoxChild">
 				<p th:text="${item.name}" class="itemName "></p>
-				<p th:text="|${item.price}| + 円" class="itemPrice"></p>
+				<p th:text="|${item.price}| + 円" class="itemPrice mb-7 mt-7"></p>
 				<p th:text="${item.caption}" class="mb-7 mt-7"></p>
 				<p>
 			<a th:href="|/cart/add/${item.id}|">
-					<button type="button" class="btnAddCart btn btn-dark">
+					<button type="button" class="btnAddCart btn btn-danger mb-7 mt-7">
 					カートに追加	
 					</button>
 					</a>

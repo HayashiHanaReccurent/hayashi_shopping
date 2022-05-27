@@ -100,6 +100,10 @@ ul {
 	list-style: none;
 }
 
+.centerMsg{
+	text-align: center;
+}
+
 /*フッターの調整*/
 footer {
 	background-color: black;
