@@ -11,7 +11,7 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-	<!-- 共通CSS(main.css) -->
+<!-- 共通CSS(main.css) -->
 <link rel="stylesheet" th:href="@{/css/main.css}">
 <!-- 専用CSS -->
 <link rel="stylesheet" th:href="@{/css/cartItem.css}">
@@ -23,30 +23,30 @@
 		<!-- メニュー  memu.htmlの内容と置き換える-->
 		<span th:replace="/menu"></span>
 	</header>
-	
-	
-	
+
+
+
 	<div class="container-fluid pr-45 pl-45">
 		<h1>カートの中身</h1>
 		<hr>
+			<p class="mt-15 centerText" th:if="${total == 0}">カートが空です</p>
 		<!-- カートの中身の商品一覧 cartItem.htmlの内容と置き換える -->
 		<span th:replace="/shopping/cartItem"></span>
-
+	
 		<div class="shoppingButton">
 			<p>
 				<a href="/itemView">
-				<button class=" btn btn-dark">
-				買い物を続ける
-				</button>
+					<button class=" btn btn-dark">買い物を続ける</button>
 				</a>
 			</p>
 			<!-- 注文する -->
-			<form action="/order">
-				<button type="submit" value="注文する" class="btn btn-dark ml-30">
-				注文画面に進む
-				</button>
+			<form action="/order" th:if="${total != 0}">
+				<button type="submit" value="注文する" class="btn btn-dark mt-15">
+					注文画面に進む</button>
 			</form>
+
 		</div>
+
 
 	</div>
 

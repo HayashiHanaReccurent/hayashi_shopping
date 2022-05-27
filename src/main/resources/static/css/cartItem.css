@@ -53,12 +53,11 @@
 }
 /*買い物を続けるリンクの装飾*/
 .shoppingButton{
-	display: flex;
-	margin-left: 40%;
+	text-align: center;
 }
 .shoppingButtonOrdered{
-	display: flex;
-	margin-left: 36%;
+	margin:auto;
+	text-align: center;
 }
 
 

@@ -54,6 +54,7 @@ public class ItemController {
 	public ModelAndView search(ModelAndView mv, @RequestParam("searchWord") String searchWord) {
 		List<Items> itemList = itemRepository.findAllByNameContaining(searchWord);
 		mv.addObject("items", itemList);
+		mv.addObject("message","商品の検索が完了しました");
 		mv.setViewName("shopping/itemView");
 		return mv;
 	}

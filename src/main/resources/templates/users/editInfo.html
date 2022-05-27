@@ -26,18 +26,18 @@
     <h1>登録情報の変更</h1>
     <hr>
     <!-- エラーメッセージを表示 -->
-	<span th:text="${message}" style="color: red;"></span>
+	<span th:text="${message}" style="color: red;" class="shippingAddressErrorMsg"></span>
     <form action="/editInfo" method="post">
     	<div class="shippingAddress">
          <p	class="mb-15">
         	<span class="fontBold">
-			ユーザーネーム<br> 
+			ユーザーネーム(8文字以上)<br> 
 			</span>
 			<input type="text" name="userName" th:value="${session.userInfo.userName}" class="inputTextbox">
 		</p>
 		 <p	class="mb-15">
 		 <span class="fontBold">
-			パスワード<br> 
+			パスワード(8文字以上)<br> 
 			</span>
 			<input type="text" name="password" th:value="${session.userInfo.password}" class="inputTextbox">
 		</p>

@@ -156,7 +156,7 @@ public class OrderController {
 //		mv.addObject("payUserList", payUserList);
 //
 //		// 未入力チェック(クレカ番号、セキュリティコード)
-//		if (isNull(creditNo) || creditSecurity == null || String.valueOf(creditSecurity).length() < 3) {
+//		if (isNull(creditNo) || creditSecurity == null || String.valueOf(creditSecurity).length() >= 4) {
 //			mv.addObject("message", "未入力の項目があるかクレジットカードの情報が間違っています");
 //			mv.setViewName("shopping/orderItemPage");
 //			return mv;

@@ -67,7 +67,7 @@ public class AccountController {
 		if (isNull(userName) || userName.length() < 8|| isNull(password) ||  password.length() < 8||isNull(email) || isNull(email) || isNull(name) || isNull(address)
 				|| isNull(tel)) {
 			// 未入力ならエラーメッセージを表示、登録画面を再度表示
-			mv.addObject("message", "未入力の項目、または文字数が足りない項目があります。");
+			mv.addObject("message", "未入力の項目、または文字数が足りない項目があります");
 			mv.setViewName("loginLogout/signup");
 			return mv;
 		}
@@ -166,10 +166,10 @@ public class AccountController {
 			@RequestParam("tel") String tel, ModelAndView mv) {
 
 		// 未入力チェック
-		if (isNull(userName) || isNull(password) || isNull(email) || isNull(name) || isNull(addressnum)
+		if (isNull(userName) ||  userName.length() < 8|| isNull(password) || password.length() < 8|| isNull(email) || isNull(name) || isNull(addressnum)
 				|| isNull(address) || isNull(tel)) {
 			// 未入力ならエラーメッセージを表示
-			mv.addObject("message", "未入力の項目があります");
+			mv.addObject("message", "未入力の項目、または文字数が足りない項目があります");
 
 			// 遷移先の指定
 			mv.setViewName("users/editInfo");

@@ -84,6 +84,7 @@ ul {
 	background-repeat: no-repeat;
 	text-align: center;
 	height: 500px;
+	background-size:cover;
 }
 
 /*センター寄せにしたいものに適用させる*/
