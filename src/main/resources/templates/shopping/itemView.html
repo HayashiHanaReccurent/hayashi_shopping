@@ -44,7 +44,7 @@
 		<div class="row">
 
 			<!-- 商品一覧 -->
-			<div class="itemBox  col-3 mb-30 mt-30 ml-15 mr-15" th:each="item:${items}">
+			<div class="itemBox  col-3 mb-30 mt-30 ml-15 mr-15 col-xs-12" th:each="item:${items}">
 				<a th:href="|/item/${item.id}/detail|"> <img
 					th:src="|/image/${item.image}|" class="itemsImg mb-7">
 
